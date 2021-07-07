@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+HashMap<String, String> supportDependencies = rootProject.ext.supportDependencies
+HashMap<String, String> networkDependencies = rootProject.ext.networkDependencies
+HashMap<String, String> testDependencies = rootProject.ext.testDependencies
+HashMap<String, String> databaseDependencies = rootProject.ext.databaseDependencies
+HashMap<String, String> firebaseDependencies = rootProject.ext.firebaseDependencies
+HashMap<String, String> application = rootProject.ext.application
+HashMap<String, String> versions = rootProject.ext.versions
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        applicationId application.appicationId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode application.versionCode
+        versionName application.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+         viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    sourceSets{
+        main.java.srcDirs += 'src/main/kotlin/'
+    }
+}
+
+dependencies {
+
+    implementation supportDependencies.values()
+    implementation networkDependencies.values()
+    implementation databaseDependencies.values()
+    implementation firebaseDependencies.values()
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coroutines_test
+    androidTestImplementation testDependencies.junit_instrumentation
+    androidTestImplementation testDependencies.espresso
+
+    def room_version = '2.3.0'
+    kapt "androidx.room:room-compiler:$room_version"
+}

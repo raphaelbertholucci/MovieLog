@@ -1,0 +1,87 @@
+ext {
+    application = [
+            versionCode  : 1,
+            versionName  : "1.0",
+            applicationId: "com.bertholucci.movielog"
+    ]
+
+    versions = [
+            buildTools: "30.0.3",
+            minSdk    : 21,
+            targetSdk : 30,
+            compileSdk: 30,
+    ]
+
+    //SUPPORT
+    gradle_version = '4.2.2'
+    kotlin_version = '1.5.10'
+    material_version = '1.4.0'
+    core_version = '1.6.0'
+    app_compat_version = '1.3.0'
+    constraint_version = '2.0.4'
+    recycler_view_version = '1.2.1'
+    lifecycle_version = '2.3.1'
+    cardview_version = '1.0.0'
+    navigation_version = '2.3.5'
+    glide_version = '4.12.0'
+    coroutines_version = '1.3.9'
+
+    //TESTS
+    junit_version = '4.13.2'
+    junit_instrumentation_version = '1.1.3'
+    espresso_version = '3.4.0'
+    mockk_version = '1.10.0'
+    coroutines_test_version = '1.5.0'
+
+    //NETWORK
+    retrofit_version = "2.9.0"
+    okHttp_interceptor_version = "4.9.1"
+    gson_version = "2.8.7"
+
+    //DATABASE
+    room_version = '2.3.0'
+    firebase_version = '20.0.0'
+
+    supportDependencies = [
+            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            material           : "com.google.android.material:material:$material_version",
+            app_compat         : "androidx.appcompat:appcompat:$app_compat_version",
+            recycler_view      : "androidx.recyclerview:recyclerview:$recycler_view_version",
+            core_ktx           : "androidx.core:core-ktx:$core_version",
+            constraint_layout  : "androidx.constraintlayout:constraintlayout:$constraint_version",
+            lifecycle_viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            lifecylce_livedata : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            navigation_fragment: "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+            navigation         : "androidx.navigation:navigation-ui-ktx:$navigation_version",
+            card_view          : "androidx.cardview:cardview:$cardview_version",
+            glide              : "com.github.bumptech.glide:glide:$glide_version",
+            glide_processor    : "com.github.bumptech.glide:compiler:$glide_version"
+    ]
+
+    testDependencies = [
+            junit                : "junit:junit:$junit_version",
+            junit_instrumentation: "androidx.test.ext:junit:$junit_instrumentation_version",
+            espresso             : "androidx.test.espresso:espresso-core:$espresso_version",
+            mockk                : "io.mockk:mockk:$mockk_version",
+            coroutines_test      : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version"
+    ]
+
+    networkDependencies = [
+            retrofit         : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttp_interceptor_version",
+            gson             : "com.google.code.gson:gson:$gson_version"
+    ]
+
+    asyncDependencies = [
+            coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    ]
+
+    databaseDependencies = [
+            room           : "androidx.room:room-runtime:$room_version",
+            room_coroutines: "androidx.room:room-ktx:$room_version"
+    ]
+
+    firebaseDependencies = [
+            firebase_database: "com.google.firebase:firebase-database-ktx:$firebase_version"
+    ]
+}
