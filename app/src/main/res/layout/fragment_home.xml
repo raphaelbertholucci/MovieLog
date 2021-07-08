@@ -29,7 +29,7 @@
                 android:layout_height="300dp"
                 android:alpha="0.2"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_background"
+                android:src="@drawable/img_home_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

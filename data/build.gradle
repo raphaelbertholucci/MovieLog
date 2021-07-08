@@ -18,15 +18,12 @@ android {
     }
 
     buildTypes {
-        debug {
+        def baseUrl = '"https://api.themoviedb.org/3/"'
+        def baseImageUrl = '"https://image.tmdb.org/t/p/w500/"'
+        all {
             buildConfigField "String", "API_KEY", "${apiKey}"
-            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
-            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
-        }
-        release {
-            buildConfigField "String", "API_KEY", "${apiKey}"
-            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
-            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
+            buildConfigField "String", "BASE_URL", "${baseUrl}"
+            buildConfigField "String", "BASE_IMAGE_URL", "${baseImageUrl}"
         }
     }
     sourceSets {
