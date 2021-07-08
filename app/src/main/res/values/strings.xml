@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MovieLog</string>
+    <string name="bottom_navigation_item1">Home</string>
+    <string name="bottom_navigation_item2">Search</string>
+    <string name="bottom_navigation_item3">Favorites</string>
 </resources>
