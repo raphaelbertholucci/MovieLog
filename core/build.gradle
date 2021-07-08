@@ -1,16 +1,9 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
 }
-
-HashMap<String, String> supportDependencies = rootProject.ext.supportDependencies
-HashMap<String, String> networkDependencies = rootProject.ext.networkDependencies
-HashMap<String, String> testDependencies = rootProject.ext.testDependencies
-HashMap<String, String> databaseDependencies = rootProject.ext.databaseDependencies
-HashMap<String, String> firebaseDependencies = rootProject.ext.firebaseDependencies
-HashMap<String, String> application = rootProject.ext.application
-HashMap<String, String> versions = rootProject.ext.versions
 
 android {
     compileSdkVersion versions.compileSdk
@@ -26,19 +19,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        dataBinding true
+    }
+
     buildTypes {
         release {
-            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
-            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    buildFeatures {
-         viewBinding = true
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -46,12 +36,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    sourceSets{
+    sourceSets {
         main.java.srcDirs += 'src/main/kotlin/'
     }
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':data')
+    api supportDependencies.values()
+    api securityDependencies.values()
+
+    def room_version = '2.3.0'
+    kapt "androidx.room:room-compiler:$room_version"
 }

@@ -7,7 +7,7 @@ ext {
 
     versions = [
             buildTools: "30.0.3",
-            minSdk    : 21,
+            minSdk    : 23,
             targetSdk : 30,
             compileSdk: 30,
     ]
@@ -41,6 +41,10 @@ ext {
     //DATABASE
     room_version = '2.3.0'
     firebase_version = '20.0.0'
+
+    //SECURITY
+    secureSharedPreferences_version = '1.0.0'
+    crypto_version = '1.0.0'
 
     supportDependencies = [
             kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
@@ -83,5 +87,10 @@ ext {
 
     firebaseDependencies = [
             firebase_database: "com.google.firebase:firebase-database-ktx:$firebase_version"
+    ]
+
+    securityDependencies = [
+            secure_shared_preferences: "androidx.security:security-crypto:$secureSharedPreferences_version",
+            crypto                   : "androidx.security:security-crypto:$crypto_version"
     ]
 }
