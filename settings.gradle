@@ -1,5 +1,5 @@
-rootProject.name = "MovieLog"
 include ':app'
 include ':core'
 include ':test'
 include ':data'
+include ':feature:home'

@@ -18,26 +18,25 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "API_KEY", "${apiKey}"
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_KEY", "${apiKey}"
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "BASE_IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    sourceSets{
+    sourceSets {
         main.java.srcDirs += 'src/main/kotlin/'
     }
 }
 
 dependencies {
-    implementation project(':core')
     api networkDependencies.values()
     api databaseDependencies.values()
     api firebaseDependencies.values()
+    api diDependencies.values()
 }

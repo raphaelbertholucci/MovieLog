@@ -1,12 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     apply from: 'dependencies.gradle'
+
+    def properties = new Properties()
+    file('credentials.properties').withInputStream { properties.load(it) }
+    ext.apiKey = properties.getProperty('api.key')
+
     repositories {
         google()
         mavenCentral()
     }
+
     dependencies {
-        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "com.android.tools.build:gradle:${gradle_version}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -15,6 +21,36 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion versions.compileSdk
+                buildToolsVersion versions.buildTools
+
+                defaultConfig {
+                    applicationId application.appicationId
+                    minSdkVersion versions.minSdk
+                    targetSdkVersion versions.targetSdk
+                    versionCode application.versionCode
+                    versionName application.versionName
+
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                }
+
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+                kotlinOptions {
+                    jvmTarget = '1.8'
+                }
+                sourceSets {
+                    main.java.srcDirs += 'src/main/kotlin/'
+                }
+            }
+        }
     }
 }
 
