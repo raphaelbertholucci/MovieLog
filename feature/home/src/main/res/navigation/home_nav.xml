@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.bertholucci.movielog.HomeFragment"
+        android:name="com.bertholucci.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.bertholucci.movielog.SearchFragment"
+        android:name="com.bertholucci.home.SearchFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.bertholucci.movielog.FavoritesFragment"
+        android:name="com.bertholucci.home.FavoritesFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 

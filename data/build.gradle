@@ -4,19 +4,6 @@ plugins {
 }
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
-
-    defaultConfig {
-        applicationId application.appicationId
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-        versionCode application.versionCode
-        versionName application.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildTypes {
         def baseUrl = '"https://api.themoviedb.org/3/"'
         def baseImageUrl = '"https://image.tmdb.org/t/p/w500/"'
