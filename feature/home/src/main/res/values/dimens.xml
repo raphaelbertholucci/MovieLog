@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="img_background_home_height">300dp</dimen>
+    <dimen name="shadow_home_height">80dp</dimen>
+    <dimen name="item_home_height">250dp</dimen>
+    <dimen name="item_home_width">150dp</dimen>
+</resources>

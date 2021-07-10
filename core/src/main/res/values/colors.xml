@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorGreen">#0BB876</color>
-    <color name="colorBlack">#000000</color>
-    <color name="colorGray">#343943</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#0F0F0F</color>
+    <color name="colorGray">#413F45</color>
+    <color name="colorGrayDark">#201E23</color>
+    <color name="colorGrayLight">#959292</color>
+    <color name="colorWhite">#F8F8F8</color>
 </resources>

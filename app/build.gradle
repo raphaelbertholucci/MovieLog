@@ -28,6 +28,8 @@ dependencies {
     implementation project(':core')
     implementation project(':data')
     implementation project(':feature:home')
-    testImplementation project(':test')
-    androidTestImplementation project(':test')
+    implementation project(':feature:movie')
+
+    testImplementation project(":test")
+    androidTestImplementation project(":test")
 }

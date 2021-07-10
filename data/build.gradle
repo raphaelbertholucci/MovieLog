@@ -13,9 +13,6 @@ android {
             buildConfigField "String", "BASE_IMAGE_URL", "${baseImageUrl}"
         }
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin/'
-    }
 }
 
 dependencies {
@@ -23,4 +20,7 @@ dependencies {
     api databaseDependencies.values()
     api firebaseDependencies.values()
     api diDependencies.values()
+
+    testImplementation project(":test")
+    androidTestImplementation project(":test")
 }

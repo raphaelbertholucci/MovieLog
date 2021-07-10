@@ -12,7 +12,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Handler(Looper.getMainLooper()).postDelayed(::navigateToHome, 1500)
+        Handler(Looper.getMainLooper()).postDelayed(::navigateToHome, 2500)
     }
 
     private fun navigateToHome() {

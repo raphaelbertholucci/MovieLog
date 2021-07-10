@@ -3,4 +3,10 @@
     <string name="bottom_navigation_item1">Home</string>
     <string name="bottom_navigation_item2">Search</string>
     <string name="bottom_navigation_item3">Favorites</string>
+
+    <!--    HOME-->
+    <string name="home_upcoming_movies">Upcoming Movies</string>
+    <string name="home_popular_movies">Popular Movies</string>
+    <string name="home_now_playing">Now Playing</string>
+    <string name="home_see_all">See All  ></string>
 </resources>

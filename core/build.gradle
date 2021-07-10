@@ -16,6 +16,9 @@ dependencies {
     api supportDependencies.values()
     api securityDependencies.values()
 
+    testImplementation project(":test")
+    androidTestImplementation project(":test")
+
     def room_version = '2.3.0'
     kapt "androidx.room:room-compiler:$room_version"
 }

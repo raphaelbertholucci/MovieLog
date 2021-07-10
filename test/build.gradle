@@ -5,9 +5,5 @@ plugins {
 
 dependencies {
     implementation project(':core')
-    testImplementation testDependencies.junit
-    testImplementation testDependencies.mockk
-    testImplementation testDependencies.coroutines_test
-    androidTestImplementation testDependencies.junit_instrumentation
-    androidTestImplementation testDependencies.espresso
+    api testDependencies.values()
 }

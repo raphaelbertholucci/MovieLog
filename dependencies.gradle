@@ -33,6 +33,7 @@ ext {
     espresso_version = "3.4.0"
     mockk_version = "1.10.0"
     coroutines_test_version = "1.5.0"
+    arch_version = '2.1.0'
 
     //NETWORK
     retrofit_version = "2.9.0"
@@ -73,7 +74,8 @@ ext {
             junit_instrumentation: "androidx.test.ext:junit:$junit_instrumentation_version",
             espresso             : "androidx.test.espresso:espresso-core:$espresso_version",
             mockk                : "io.mockk:mockk:$mockk_version",
-            coroutines_test      : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version"
+            coroutines_test      : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version",
+            arch                 : "androidx.arch.core:core-testing:$arch_version"
     ]
 
     networkDependencies = [

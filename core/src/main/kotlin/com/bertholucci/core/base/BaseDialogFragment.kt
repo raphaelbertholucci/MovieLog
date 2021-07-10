@@ -16,7 +16,6 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(private val layoutId: Int
     lateinit var binding: T
 
     var show = false
-        private set
 
     override fun onResume() {
         super.onResume()
