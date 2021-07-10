@@ -23,6 +23,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
     lateinit var binding: T
 
     private val errorDialog: ErrorDialog by inject()
+    private val loadingDialog: LoadingDialog by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,9 +34,8 @@ abstract class BaseFragment<T : ViewDataBinding>(
         return binding.root
     }
 
+    //This function has to be called inside the children to configure loading dialog
     fun setupLoading(viewModel: BaseViewModel) {
-        val loadingDialog = LoadingDialog()
-
         viewModel.loading.observe(viewLifecycleOwner) { loading ->
             if (loading) loadingDialog.show(childFragmentManager, "LOADING_DIALOG")
             else loadingDialog.dismiss()

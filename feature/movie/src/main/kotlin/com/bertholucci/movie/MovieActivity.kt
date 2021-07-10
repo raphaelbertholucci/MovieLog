@@ -3,6 +3,7 @@ package com.bertholucci.movie
 import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.extensions.loadFromUrl
+import com.bertholucci.core.extensions.showSnack
 import com.bertholucci.core.model.Genre
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.EXTRA_ID
@@ -42,7 +43,10 @@ class MovieActivity : BaseActivity<ActivityMovieBinding>(R.layout.activity_movie
 
         viewModel.movieEntity.observe(this) { response ->
             response.fold(::handleError) {
-                checkIfMovieIsFavorite(it.isFavorite)
+                if (movie.id == it.id) {
+                    movie.isFavorite = true
+                    binding.ivSave.isFavorite()
+                }
             }
         }
     }
@@ -50,7 +54,7 @@ class MovieActivity : BaseActivity<ActivityMovieBinding>(R.layout.activity_movie
     private fun addListeners() {
         binding.ivBack.setOnClickListener { finish() }
         binding.ivSave.setOnClickListener {
-            viewModel.insertMovie(movie)
+            viewModel.updateMovieState(movie)
         }
     }
 
@@ -69,8 +73,15 @@ class MovieActivity : BaseActivity<ActivityMovieBinding>(R.layout.activity_movie
     }
 
     private fun checkIfMovieIsFavorite(isFavorite: Boolean) {
-        if (isFavorite) binding.ivSave.isFavorite()
-        else binding.ivSave.isNotFavorite()
+        if (isFavorite) {
+            movie.isFavorite = true
+            binding.ivSave.isFavorite()
+            showSnack(R.string.movie_saved)
+        } else {
+            movie.isFavorite = false
+            binding.ivSave.isNotFavorite()
+            showSnack(R.string.movie_removed)
+        }
     }
 
     private fun setupGenreAdapter(list: List<Genre>) {

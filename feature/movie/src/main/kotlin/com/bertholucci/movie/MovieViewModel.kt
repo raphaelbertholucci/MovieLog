@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 
 class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() {
 
@@ -35,21 +36,32 @@ class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() 
             .launchIn(viewModelScope)
     }
 
-    fun insertMovie(movie: Movie) {
-        repository.insertMovie(movie.toEntityRequest())
-        isFavorite.postValue(true)
+    fun updateMovieState(movie: Movie) {
+        if (movie.isFavorite) removeMovie(movie)
+        else insertMovie(movie)
     }
 
-    fun removeMovie(movie: Movie) {
-        repository.removeMovie(movie.toEntityRequest())
-        isFavorite.postValue(false)
+    private fun insertMovie(movie: Movie) {
+        viewModelScope.launch {
+            repository.insertMovie(movie.toEntityRequest())
+            isFavorite.postValue(true)
+        }
+    }
+
+    private fun removeMovie(movie: Movie) {
+        viewModelScope.launch {
+            repository.removeMovie(movie.toEntityRequest())
+            isFavorite.postValue(false)
+        }
     }
 
     fun getMovieByID(id: Int) {
         repository.getMovieById(id)
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
-            .map { _movieEntity.postValue(Response.Success(Movie(it))) }
+            .map {
+                _movieEntity.postValue(Response.Success(Movie(it)))
+            }
             .catch { _movieEntity.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)
     }
