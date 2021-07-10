@@ -1,4 +1,4 @@
-package com.bertholucci.home.model
+package com.bertholucci.core.model
 
 import com.bertholucci.data.model.MovieResponse
 
@@ -13,6 +13,7 @@ data class Movie(
     val overview: String? = "",
     val releaseDate: String? = "",
     val runtime: String? = "",
+    val genres: List<Genre> = listOf(),
     var isFavorite: Boolean = false
 ) {
     constructor(response: MovieResponse) : this(

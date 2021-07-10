@@ -12,6 +12,10 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="TextTitle.Big">
+        <item name="android:textSize">@dimen/font_title</item>
+    </style>
+
     <style name="TextDialogTitle">
         <item name="android:textSize">@dimen/default_title</item>
         <item name="android:textStyle">bold</item>

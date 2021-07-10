@@ -48,7 +48,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
         }
     }
 
-    fun showErrorDialog(@StringRes resId: Int) {
+    private fun showErrorDialog(@StringRes resId: Int) {
         val dialog = ErrorDialog()
         dialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
         dialog.show = true

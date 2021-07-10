@@ -3,11 +3,11 @@ package com.bertholucci.home.ui.home
 import android.os.Bundle
 import android.view.View
 import com.bertholucci.core.base.BaseFragment
-import com.bertholucci.core.component.LoadingDialog
+import com.bertholucci.core.model.Movie
+import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentHomeBinding
-import com.bertholucci.home.model.Movie
 import com.bertholucci.home.model.MovieType
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,7 +30,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewModel.upcoming.observe(viewLifecycleOwner) { response ->
             response.fold(
                 success = ::handleUpcomingSuccess,
-                loading = ::handleLoading,
                 error = ::handleError
             )
         }
@@ -38,7 +37,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewModel.popular.observe(viewLifecycleOwner) { response ->
             response.fold(
                 success = ::handlePopularSuccess,
-                loading = ::handleLoading,
                 error = ::handleError
             )
         }
@@ -46,7 +44,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewModel.nowPlaying.observe(viewLifecycleOwner) { response ->
             response.fold(
                 success = ::handleNowPlayingSuccess,
-                loading = ::handleLoading,
                 error = ::handleError
             )
         }
@@ -65,25 +62,30 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun handleUpcomingSuccess(list: List<Movie>) {
-        val adapter = HomeAdapter(list)
-        binding.rvUpcoming.adapter = adapter
+        binding.rvUpcoming.adapter = setupAdapter(list)
     }
 
     private fun handlePopularSuccess(list: List<Movie>) {
-        val adapter = HomeAdapter(list)
-        binding.rvPopular.adapter = adapter
+        binding.rvPopular.adapter = setupAdapter(list)
     }
 
     private fun handleNowPlayingSuccess(list: List<Movie>) {
-        val adapter = HomeAdapter(list)
-        binding.rvNowPlaying.adapter = adapter
+        binding.rvNowPlaying.adapter = setupAdapter(list)
     }
 
-    private fun handleLoading(loading: Boolean) {
-        LoadingDialog().show = loading
+    private fun setupAdapter(list: List<Movie>): HomeAdapter {
+        val adapter = HomeAdapter(list)
+        adapter.onClick = {
+            navigateToMovie(it.id.toString())
+        }
+        return adapter
     }
 
     private fun navigateToList(type: MovieType) {
 
+    }
+
+    private fun navigateToMovie(id: String) {
+        activity?.run { startActivity(intentToMovie(id)) }
     }
 }

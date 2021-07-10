@@ -24,10 +24,4 @@ class HomeRepository(private val api: MovieLogApi) {
             emit(api.getNowPlayingMovies(page).results)
         }
     }
-
-    fun getMovieDetails(movieId: String): Flow<MovieResponse> {
-        return flow {
-            emit(api.getMovieDetails(movieId))
-        }
-    }
 }

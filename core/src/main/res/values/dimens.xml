@@ -23,4 +23,8 @@
     <!--    ICONS-->
     <dimen name="icon_size_small">20dp</dimen>
     <dimen name="icon_size_big">40dp</dimen>
+
+    <!--    COMPONENTS-->
+    <dimen name="img_background_home_height">330dp</dimen>
+    <dimen name="shadow_home_height">80dp</dimen>
 </resources>

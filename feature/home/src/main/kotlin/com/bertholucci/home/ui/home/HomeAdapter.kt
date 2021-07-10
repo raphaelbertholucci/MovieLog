@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.home.R
-import com.bertholucci.home.model.Movie
+import com.bertholucci.core.model.Movie
 
 class HomeAdapter(val list: List<Movie> = listOf()) : RecyclerView.Adapter<HomeViewHolder>() {
 

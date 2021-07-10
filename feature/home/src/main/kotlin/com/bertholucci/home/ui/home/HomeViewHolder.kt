@@ -5,7 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.home.databinding.ItemHomeBinding
-import com.bertholucci.home.model.Movie
+import com.bertholucci.core.model.Movie
 
 class HomeViewHolder internal constructor(itemView: View, val onClick: ((Movie) -> Unit)? = null) :
     RecyclerView.ViewHolder(itemView) {

@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.bertholucci.core.base.BaseViewModel
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.repository.HomeRepository
-import com.bertholucci.home.model.Movie
+import com.bertholucci.core.model.Movie
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
