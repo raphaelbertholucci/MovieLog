@@ -27,6 +27,17 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="TextSubtitle">
+        <item name="android:textSize">@dimen/normal_title</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="TextDescription.Bold">
+        <item name="android:textSize">@dimen/default_title</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextDescription.Green">
         <item name="android:textSize">@dimen/default_title</item>
         <item name="android:textColor">@color/colorGreen</item>
@@ -41,5 +52,10 @@
     <style name="TextDescriptionLight">
         <item name="android:textSize">@dimen/default_title</item>
         <item name="android:textColor">@color/colorGrayLight</item>
+    </style>
+
+    <style name="TextInfo">
+        <item name="android:textSize">@dimen/small_title</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 </resources>

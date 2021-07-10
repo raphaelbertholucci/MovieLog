@@ -1,7 +1,9 @@
 package com.bertholucci.movielog
 
 import android.app.Application
+import com.bertholucci.core.di.helpersModule
 import com.bertholucci.data.di.apiModule
+import com.bertholucci.data.di.databaseModule
 import com.bertholucci.data.di.repositoryModule
 import com.bertholucci.home.di.homeModule
 import com.bertholucci.movie.movieModule
@@ -17,7 +19,14 @@ class MovieLogApp : Application() {
             androidContext(this@MovieLogApp)
             androidLogger()
             modules(
-                listOf(apiModule, repositoryModule, homeModule, movieModule)
+                listOf(
+                    apiModule,
+                    databaseModule,
+                    repositoryModule,
+                    homeModule,
+                    movieModule,
+                    helpersModule
+                )
             )
         }
     }

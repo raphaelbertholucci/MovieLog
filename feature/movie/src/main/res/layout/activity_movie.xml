@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.40" />
+                app:layout_constraintGuide_percent="0.12" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guide_end"
@@ -41,6 +41,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="@dimen/default_margin" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/default_margin"
+                android:src="@drawable/core_ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/default_margin"
+                android:src="@drawable/movie_ic_heart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_background"
@@ -61,14 +81,35 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_poster"
+                android:layout_width="120dp"
+                android:layout_height="190dp"
+                android:background="@color/colorBlack"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintTop_toTopOf="@id/guide_top">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_default" />
+
+            </androidx.cardview.widget.CardView>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_title"
-                style="@style/TextTitle.Big"
-                android:layout_width="wrap_content"
+                style="@style/TextDescription.Bold"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/big_margin"
                 android:text="@{movie.title}"
                 app:layout_constraintEnd_toEndOf="@id/guide_end"
-                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/cv_poster"
                 app:layout_constraintTop_toTopOf="@id/guide_top"
                 tools:text="Avengers: Endgame" />
 
@@ -77,25 +118,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/little_margin"
-                android:drawableStart="@drawable/ic_star"
+                android:drawableStart="@drawable/movie_ic_star"
                 android:drawablePadding="@dimen/little_margin"
                 android:text="@{movie.voteAverage.toString()}"
                 android:textColor="@color/colorYellow"
-                android:textSize="@dimen/medium_title"
+                android:textSize="@dimen/default_title"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/guide_end"
-                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_title"
                 tools:text="9.9" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_runtime"
-                style="@style/TextDescription.Gray"
+                style="@style/TextInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/little_margin"
-                app:layout_constraintEnd_toEndOf="@id/guide_end"
-                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_rate"
                 tools:text="120 min" />
 
@@ -105,24 +144,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
                 app:layout_constraintEnd_toEndOf="@id/guide_end"
-                app:layout_constraintStart_toStartOf="@id/guide_start"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_runtime"
-                tools:itemCount="3"
+                tools:itemCount="4"
                 tools:listitem="@layout/item_genre" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="cv_poster,rv_genre" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_about_label"
-                style="@style/TextTitle"
+                style="@style/TextDescription.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/big_margin"
                 android:text="@string/movie_about"
                 app:layout_constraintStart_toStartOf="@id/guide_start"
-                app:layout_constraintTop_toBottomOf="@id/rv_genre" />
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_about"
-                style="@style/TextDescription"
+                style="@style/TextSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/little_margin"

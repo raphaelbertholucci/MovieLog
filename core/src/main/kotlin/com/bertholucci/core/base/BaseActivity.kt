@@ -33,6 +33,6 @@ abstract class BaseActivity<T : ViewDataBinding>(private val layoutId: Int) : Ap
     private fun showErrorDialog(@StringRes resId: Int) {
         val dialog = ErrorDialog()
         dialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
-        dialog.show = true
+        dialog.show(supportFragmentManager, "")
     }
 }

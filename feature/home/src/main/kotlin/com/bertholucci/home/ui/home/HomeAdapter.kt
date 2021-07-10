@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.home.R
 import com.bertholucci.core.model.Movie
 
-class HomeAdapter(val list: List<Movie> = listOf()) : RecyclerView.Adapter<HomeViewHolder>() {
+class HomeAdapter(private val list: List<Movie> = listOf()) : RecyclerView.Adapter<HomeViewHolder>() {
 
     var onClick: ((Movie) -> Unit)? = null
 

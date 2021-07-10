@@ -2,12 +2,14 @@
 <resources>
     <!--    MARGIN-->
     <dimen name="match_constraint">0dp</dimen>
+    <dimen name="tiny_margin">4dp</dimen>
     <dimen name="little_margin">8dp</dimen>
     <dimen name="default_margin">16dp</dimen>
     <dimen name="medium_margin">24dp</dimen>
     <dimen name="big_margin">32dp</dimen>
 
     <!--    FONT SIZE-->
+    <dimen name="small_title">12sp</dimen>
     <dimen name="normal_title">14sp</dimen>
     <dimen name="default_title">16sp</dimen>
     <dimen name="medium_title">20sp</dimen>
@@ -25,6 +27,6 @@
     <dimen name="icon_size_big">40dp</dimen>
 
     <!--    COMPONENTS-->
-    <dimen name="img_background_home_height">330dp</dimen>
+    <dimen name="img_background_home_height">300dp</dimen>
     <dimen name="shadow_home_height">80dp</dimen>
 </resources>

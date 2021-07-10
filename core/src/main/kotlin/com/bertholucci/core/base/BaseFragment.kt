@@ -14,12 +14,15 @@ import com.bertholucci.core.component.ErrorDialog
 import com.bertholucci.core.component.LoadingDialog
 import com.bertholucci.core.exception.Failure
 import com.bertholucci.core.helpers.NetworkHelper
+import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<T : ViewDataBinding>(
     private val layoutId: Int
 ) : Fragment() {
 
     lateinit var binding: T
+
+    private val errorDialog: ErrorDialog by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,23 +37,24 @@ abstract class BaseFragment<T : ViewDataBinding>(
         val loadingDialog = LoadingDialog()
 
         viewModel.loading.observe(viewLifecycleOwner) { loading ->
-            loadingDialog.show = loading
+            if (loading) loadingDialog.show(childFragmentManager, "LOADING_DIALOG")
+            else loadingDialog.dismiss()
         }
     }
 
     fun handleError(error: Throwable) {
-        when {
+        val message = when {
             NetworkHelper.hasConnection(context = context)
-                .not() -> showErrorDialog(R.string.network_error)
-            error is Failure.ServerFailure -> showErrorDialog(R.string.server_error)
-            error is Failure.FeatureFailure -> showErrorDialog(R.string.feature_error)
-            error is Failure.GenericFailure -> showErrorDialog(R.string.general_error)
+                .not() -> R.string.network_error
+            error is Failure.ServerFailure -> R.string.server_error
+            error is Failure.FeatureFailure -> R.string.feature_error
+            else -> R.string.general_error
         }
+        showErrorDialog(message)
     }
 
     private fun showErrorDialog(@StringRes resId: Int) {
-        val dialog = ErrorDialog()
-        dialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
-        dialog.show = true
+        errorDialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
+        errorDialog.show(childFragmentManager, "")
     }
 }
