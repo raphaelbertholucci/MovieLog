@@ -15,6 +15,7 @@ data class Movie(
     val overview: String? = "",
     val releaseDate: String? = "",
     val runtime: String? = "",
+    val originalLanguage: String? = "",
     val genres: List<Genre> = listOf(),
     var isFavorite: Boolean = false
 ) {
@@ -29,6 +30,7 @@ data class Movie(
         overview = response.overview,
         releaseDate = response.releaseDate,
         runtime = response.runtime,
+        originalLanguage = response.originalLanguage,
         genres = response.genres?.map(::Genre) ?: listOf()
     )
 
@@ -43,6 +45,7 @@ data class Movie(
         overview = entity.overview,
         releaseDate = entity.releaseDate,
         runtime = entity.runtime,
+        originalLanguage = entity.originalLanguage,
         genres = Gson().fromJson(entity.genres, Array<Genre>::class.java).asList()
     )
 }
@@ -59,6 +62,7 @@ fun Movie.toEntityRequest(): MovieEntity {
         overview = this.overview,
         releaseDate = this.releaseDate,
         runtime = this.runtime,
+        originalLanguage = this.originalLanguage,
         genres = Gson().toJson(this.genres)
     )
 }

@@ -16,5 +16,6 @@ data class MovieEntity(
     val voteAverage: Double? = 0.0,
     val overview: String? = "",
     val releaseDate: String? = "",
-    val runtime: String? = ""
+    val runtime: String? = "",
+    val originalLanguage: String? = ""
 )

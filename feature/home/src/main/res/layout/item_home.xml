@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:transitionName="Movie Transition"
-                tools:src="@drawable/img_default" />
+                tools:src="@drawable/core_img_default" />
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView

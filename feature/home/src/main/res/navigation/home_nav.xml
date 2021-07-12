@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_search"
-        android:name="com.bertholucci.home.ui.SearchFragment"
+        android:id="@+id/nav_top_rated"
+        android:name="com.bertholucci.home.ui.top_rated.TopRatedFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_top_rated" />
 
     <fragment
         android:id="@+id/nav_favorites"

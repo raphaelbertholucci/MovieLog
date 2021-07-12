@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/little_margin"
         android:layout_marginBottom="@dimen/little_margin"
-        android:background="@drawable/bg_white_stroke"
+        android:background="@drawable/core_bg_white_stroke"
         android:paddingStart="@dimen/little_margin"
         android:paddingTop="@dimen/tiny_margin"
         android:paddingEnd="@dimen/little_margin"

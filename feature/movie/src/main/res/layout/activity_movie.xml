@@ -71,20 +71,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/img_default" />
+                tools:src="@drawable/core_img_default" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/shadow_home_height"
-                android:background="@drawable/bg_gradient"
+                android:background="@drawable/core_bg_gradient"
                 app:layout_constraintBottom_toBottomOf="@id/iv_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_poster"
-                android:layout_width="120dp"
-                android:layout_height="190dp"
+                android:layout_width="@dimen/movie_poster_width"
+                android:layout_height="@dimen/movie_poster_height"
                 android:background="@color/colorBlack"
                 app:cardCornerRadius="@dimen/card_radius"
                 app:layout_constraintStart_toStartOf="@id/guide_start"
@@ -95,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_default" />
+                    android:src="@drawable/core_img_default" />
 
             </androidx.cardview.widget.CardView>
 
@@ -118,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/little_margin"
-                android:drawableStart="@drawable/movie_ic_star"
+                android:drawableStart="@drawable/core_ic_star"
                 android:drawablePadding="@dimen/little_margin"
                 android:text="@{movie.voteAverage.toString()}"
                 android:textColor="@color/colorYellow"

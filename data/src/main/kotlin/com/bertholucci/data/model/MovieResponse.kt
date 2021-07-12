@@ -13,5 +13,6 @@ data class MovieResponse(
     @SerializedName("overview") val overview: String?,
     @SerializedName("release_date") val releaseDate: String?,
     @SerializedName("runtime") val runtime: String?,
+    @SerializedName("original_language") val originalLanguage: String?,
     @SerializedName("genres") val genres: List<GenreResponse>?
 )

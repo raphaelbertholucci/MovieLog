@@ -5,14 +5,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_dialog"
+        android:background="@drawable/core_bg_dialog"
         android:padding="@dimen/medium_margin">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_sad"
+            android:src="@drawable/core_ic_sad"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,7 @@
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
-            android:background="@drawable/bg_button"
+            android:background="@drawable/core_bg_button"
             android:text="@string/understood"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"

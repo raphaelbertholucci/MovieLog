@@ -33,8 +33,6 @@
     </style>
 
     <style name="TextDescription.Bold">
-        <item name="android:textSize">@dimen/default_title</item>
-        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -57,5 +55,9 @@
     <style name="TextInfo">
         <item name="android:textSize">@dimen/small_title</item>
         <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="TextInfo.Gray">
+        <item name="android:textColor">@color/colorGrayLight</item>
     </style>
 </resources>

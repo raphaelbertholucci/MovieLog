@@ -42,7 +42,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/shadow_home_height"
-                android:background="@drawable/bg_gradient"
+                android:background="@drawable/core_bg_gradient"
                 app:layout_constraintBottom_toBottomOf="@id/iv_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
