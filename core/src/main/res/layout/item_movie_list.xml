@@ -17,8 +17,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_poster"
-            android:layout_width="@dimen/search_item_width"
-            android:layout_height="@dimen/search_item_height"
+            android:layout_width="@dimen/movie_list_item_width"
+            android:layout_height="@dimen/movie_list_item_height"
             android:background="@color/colorBlack"
             app:cardCornerRadius="@dimen/card_radius"
             app:layout_constraintStart_toStartOf="parent"

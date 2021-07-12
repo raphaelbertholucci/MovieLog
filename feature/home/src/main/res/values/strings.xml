@@ -12,8 +12,4 @@
 
     <!--    TOP RATED-->
     <string name="top_rated_title">Top Rated</string>
-    <plurals name="votes">
-        <item quantity="one">%d vote</item>
-        <item quantity="other">%d votes</item>
-    </plurals>
 </resources>

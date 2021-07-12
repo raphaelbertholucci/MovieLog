@@ -6,4 +6,10 @@
     <string name="server_error">Server unavailable, sorry!</string>
     <string name="general_error">Unexpected error occurred.</string>
     <string name="feature_error">Unexpected error occurred. Try again later.</string>
+    <string name="movies_loaded">Movies loaded!</string>
+
+    <plurals name="votes">
+        <item quantity="one">%d vote</item>
+        <item quantity="other">%d votes</item>
+    </plurals>
 </resources>

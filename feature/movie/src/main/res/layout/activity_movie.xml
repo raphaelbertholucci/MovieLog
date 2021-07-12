@@ -138,6 +138,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_rate"
                 tools:text="120 min" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_language"
+                style="@style/TextInfo.Gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/little_margin"
+                android:text="@{movie.originalLanguage.toUpperCase()}"
+                app:layout_constraintStart_toStartOf="@id/tv_runtime"
+                app:layout_constraintTop_toBottomOf="@id/tv_runtime"
+                tools:text="EN" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_genre"
                 android:layout_width="0dp"
@@ -145,7 +156,7 @@
                 android:layout_marginTop="@dimen/default_margin"
                 app:layout_constraintEnd_toEndOf="@id/guide_end"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_runtime"
+                app:layout_constraintTop_toBottomOf="@id/tv_language"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_genre" />
 

@@ -15,15 +15,15 @@ import kotlinx.coroutines.flow.onStart
 
 class TopRatedViewModel(private val repository: TopRatedRepository) : BaseViewModel() {
 
-    private val _topRated = MutableLiveData<Response<List<Movie>>>()
-    val topRated: LiveData<Response<List<Movie>>>
+    private val _topRated = MutableLiveData<Response<MutableList<Movie>>>()
+    val topRated: LiveData<Response<MutableList<Movie>>>
         get() = _topRated
 
-    fun getTopRatedMovies() {
-        repository.getTopRatedMovies()
+    fun getTopRatedMovies(page: Int = 1) {
+        repository.getTopRatedMovies(page = page)
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
-            .map { _topRated.postValue(Response.Success(it.map(::Movie))) }
+            .map { _topRated.postValue(Response.Success(it.map(::Movie).toMutableList())) }
             .catch { _topRated.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)
     }
