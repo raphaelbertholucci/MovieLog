@@ -24,7 +24,7 @@ The code is organized using a Multi Module Project Structure with MVVM and some 
   * <b>Navigation</b> of Jetpack Components
  
  
- <img src="https://github.com/raphaelbertholucci/TheMovieDB/blob/master/pictures/search.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/TheMovieDB/blob/master/pictures/search.webp" width="250" height="480" />  <img src="https://github.com/raphaelbertholucci/TheMovieDB/blob/master/pictures/favorites.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/TheMovieDB/blob/master/pictures/favorites.webp" width="250" height="480" />
+ <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/search.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/search.webp" width="250" height="480" />  <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/favorites.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/favorites.webp" width="250" height="480" />
  
 ## License
-This project is licensed under the Apache License - see the LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details
