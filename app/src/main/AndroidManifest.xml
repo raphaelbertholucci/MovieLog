@@ -30,7 +30,8 @@
 
         <activity
             android:name="com.bertholucci.movielog.ui.MainActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="${applicationId}.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />

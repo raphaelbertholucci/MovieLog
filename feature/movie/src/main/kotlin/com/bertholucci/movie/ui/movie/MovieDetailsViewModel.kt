@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bertholucci.core.base.BaseViewModel
-import com.bertholucci.movie.model.Movie
-import com.bertholucci.movie.model.toEntityRequest
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.movie.model.Movie
+import com.bertholucci.movie.model.toEntityRequest
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -59,8 +59,8 @@ class MovieDetailsViewModel(private val repository: MovieRepository) : BaseViewM
         repository.getMovieById(id)
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
-            .map {
-                _movieEntity.postValue(Response.Success(Movie(it)))
+            .map { movie ->
+                movie?.let { _movieEntity.postValue(Response.Success(Movie(it))) }
             }
             .catch { _movieEntity.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)

@@ -3,9 +3,9 @@ package com.bertholucci.movie.ui.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bertholucci.core.ui.LoadingViewHolder
 import com.bertholucci.movie.R
 import com.bertholucci.movie.model.Movie
-import com.bertholucci.core.ui.LoadingViewHolder
 
 class MovieListAdapter(private val list: MutableList<Movie> = mutableListOf()) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -18,6 +18,12 @@ class MovieListAdapter(private val list: MutableList<Movie> = mutableListOf()) :
     private val viewTypeLoading = 1
 
     fun updateList(movieList: List<Movie>) {
+        list.addAll(movieList)
+        notifyDataSetChanged()
+    }
+
+    fun setList(movieList: List<Movie>) {
+        list.clear()
         list.addAll(movieList)
         notifyDataSetChanged()
     }

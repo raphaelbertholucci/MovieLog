@@ -57,9 +57,15 @@ class MovieRepository(private val api: MovieLogApi, private val dao: MovieDao) {
         dao.removeMovie(movie)
     }
 
-    fun getMovieById(id: Int): Flow<MovieEntity> {
+    fun getMovieById(id: Int): Flow<MovieEntity?> {
         return flow {
             emit(dao.getMovieByID(id))
+        }
+    }
+
+    fun searchMovies(query: String, page: Int = 1): Flow<List<MovieResponse>> {
+        return flow {
+            emit(api.searchMovies(query = query, page = page).results)
         }
     }
 }

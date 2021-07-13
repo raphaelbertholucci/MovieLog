@@ -8,12 +8,10 @@ import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.bertholucci.core.R
 import com.bertholucci.core.component.ARG_DESCRIPTION
 import com.bertholucci.core.component.ErrorDialog
 import com.bertholucci.core.component.LoadingDialog
-import com.bertholucci.core.exception.Failure
-import com.bertholucci.core.helpers.NetworkHelper
+import com.bertholucci.core.exception.ExceptionHandler.handleException
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<T : ViewDataBinding>(
@@ -43,14 +41,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
     }
 
     fun handleError(error: Throwable) {
-        val message = when {
-            NetworkHelper.hasConnection(context = context)
-                .not() -> R.string.network_error
-            error is Failure.ServerFailure -> R.string.server_error
-            error is Failure.FeatureFailure -> R.string.feature_error
-            else -> R.string.general_error
-        }
-        showErrorDialog(message)
+        showErrorDialog(handleException(context, error))
     }
 
     private fun showErrorDialog(@StringRes resId: Int) {

@@ -7,6 +7,7 @@ import android.widget.ImageView
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.bertholucci.core.R
 import com.bertholucci.data.BuildConfig
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -26,6 +27,7 @@ fun View.gone() {
 fun ImageView.loadFromUrl(image: String?): Target<Drawable> {
     return Glide.with(this)
         .load(BuildConfig.BASE_IMAGE_URL.plus(image))
+        .placeholder(R.drawable.core_img_default)
         .transition(DrawableTransitionOptions.withCrossFade())
         .apply(
             RequestOptions()
