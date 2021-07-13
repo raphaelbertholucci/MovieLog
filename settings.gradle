@@ -1,6 +1,5 @@
 include ':app'
 include ':core'
 include ':data'
-include ':feature:home'
 include ':feature:movie'
 include ':test'

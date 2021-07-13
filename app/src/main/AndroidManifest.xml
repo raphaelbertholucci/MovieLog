@@ -27,6 +27,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.bertholucci.movielog.ui.MainActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="${applicationId}.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

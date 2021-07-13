@@ -3,4 +3,9 @@
     <string name="movie_about">About</string>
     <string name="movie_saved">Movie saved to favorites with success!</string>
     <string name="movie_removed">Movie removed from favorites!</string>
+
+    <plurals name="votes">
+        <item quantity="one">%d vote</item>
+        <item quantity="other">%d votes</item>
+    </plurals>
 </resources>

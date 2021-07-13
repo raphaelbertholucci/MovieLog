@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="splash_animation_size">180dp</dimen>
+    <dimen name="item_home_height">250dp</dimen>
+    <dimen name="item_home_width">150dp</dimen>
 </resources>

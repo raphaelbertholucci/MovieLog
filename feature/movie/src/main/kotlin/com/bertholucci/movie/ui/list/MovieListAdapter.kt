@@ -1,10 +1,11 @@
-package com.bertholucci.core.ui
+package com.bertholucci.movie.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bertholucci.core.R
-import com.bertholucci.core.model.Movie
+import com.bertholucci.movie.R
+import com.bertholucci.movie.model.Movie
+import com.bertholucci.core.ui.LoadingViewHolder
 
 class MovieListAdapter(private val list: MutableList<Movie> = mutableListOf()) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -25,7 +26,7 @@ class MovieListAdapter(private val list: MutableList<Movie> = mutableListOf()) :
         if (viewType == viewTypeItem) {
             MovieListViewHolder(
                 itemView = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_movie_list, parent, false),
+                    .inflate(R.layout.movie_item_list, parent, false),
                 onClick = onClick
             )
         } else {

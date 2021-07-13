@@ -8,8 +8,10 @@
     <string name="feature_error">Unexpected error occurred. Try again later.</string>
     <string name="movies_loaded">Movies loaded!</string>
 
-    <plurals name="votes">
-        <item quantity="one">%d vote</item>
-        <item quantity="other">%d votes</item>
-    </plurals>
+    <!--    HOME-->
+    <string name="core_upcoming_movies">Upcoming Movies</string>
+    <string name="core_popular_movies">Popular Movies</string>
+    <string name="core_now_playing_movies">Now Playing</string>
+    <string name="core_top_rated_movies">Top Rated</string>
+    <string name="core_see_all">See All  ></string>
 </resources>

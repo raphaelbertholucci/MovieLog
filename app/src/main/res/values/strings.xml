@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottom_navigation_item1">Home</string>
+    <string name="bottom_navigation_item2">Top Rated</string>
+    <string name="bottom_navigation_item3">Favorites</string>
+</resources>

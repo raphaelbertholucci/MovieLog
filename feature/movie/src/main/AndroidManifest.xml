@@ -4,10 +4,18 @@
 
     <application>
         <activity
-            android:name=".MovieActivity"
+            android:name="com.bertholucci.movie.ui.movie.MovieDetailsActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="${applicationId}.MOVIE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.bertholucci.movie.ui.list.MovieListActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="${applicationId}.MOVIE_LIST" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
