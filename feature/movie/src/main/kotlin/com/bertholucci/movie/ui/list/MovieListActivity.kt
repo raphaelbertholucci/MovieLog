@@ -23,6 +23,7 @@ class MovieListActivity : BaseActivity<ActivityListBinding>(R.layout.activity_li
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addObservers()
+        addListeners()
 
         val type = intent.getStringExtra(EXTRA_MOVIE_TYPE)
         type?.let {
@@ -35,6 +36,10 @@ class MovieListActivity : BaseActivity<ActivityListBinding>(R.layout.activity_li
         viewModel.movieList.observe(this) { response ->
             response.fold(::handleError, ::handleSuccess)
         }
+    }
+
+    private fun addListeners() {
+        binding.ivBack.setOnClickListener { finish() }
     }
 
     private fun setupUI(type: MovieType) {

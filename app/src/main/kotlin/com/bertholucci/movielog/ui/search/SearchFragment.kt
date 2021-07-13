@@ -2,9 +2,9 @@ package com.bertholucci.movielog.ui.search
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseFragment
-import com.bertholucci.core.extensions.onTextChanged
 import com.bertholucci.core.helpers.EndlessScrollListener
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.data.helpers.fold
@@ -29,10 +29,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private fun setupListeners() {
-        binding.etSearch.onTextChanged {
-            if (it.length >= 3) {
-                searchPage = 1
-                viewModel.searchMovies(it)
+        binding.etSearch.doOnTextChanged { text, _, _, _ ->
+            text?.let {
+                if (it.length >= 3) {
+                    searchPage = 1
+                    viewModel.searchMovies(text.toString())
+                }
             }
         }
     }

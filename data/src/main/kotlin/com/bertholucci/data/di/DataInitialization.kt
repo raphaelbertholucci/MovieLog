@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit
 
 const val apiKey = "api_key"
 const val CONN_TIMEOUT_SEC = 60L
+const val HEADER_STALE = 60 * 60 * 24
 
 val apiModule = module {
     single {
@@ -28,7 +29,7 @@ val apiModule = module {
             val httpUrl = original.url.newBuilder()
                 .addQueryParameter(apiKey, BuildConfig.API_KEY).build()
             val request = original.newBuilder()
-                .header("Cache-Control", "public, max-stale=" + 60 * 60 * 24)
+                .header("Cache-Control", "public, max-stale=$HEADER_STALE")
                 .url(httpUrl)
                 .build()
             chain.proceed(request)

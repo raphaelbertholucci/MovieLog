@@ -1,7 +1,6 @@
 package com.bertholucci.movielog.ui.favorites
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.movie.model.Movie
@@ -11,7 +10,6 @@ class FavoritesAdapter(private val list: List<Movie>) :
     RecyclerView.Adapter<FavoritesViewHolder>() {
 
     var onClick: ((Movie) -> Unit)? = null
-    var imageView: ((View) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesViewHolder {
         return FavoritesViewHolder(

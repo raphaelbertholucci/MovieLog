@@ -5,13 +5,10 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.bertholucci.core.R
 import com.bertholucci.core.component.ARG_DESCRIPTION
 import com.bertholucci.core.component.ErrorDialog
 import com.bertholucci.core.component.LoadingDialog
 import com.bertholucci.core.exception.ExceptionHandler.handleException
-import com.bertholucci.core.exception.Failure
-import com.bertholucci.core.helpers.NetworkHelper
 import org.koin.android.ext.android.inject
 
 abstract class BaseActivity<T : ViewDataBinding>(private val layoutId: Int) : AppCompatActivity() {

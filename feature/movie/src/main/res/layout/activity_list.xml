@@ -8,6 +8,14 @@
         android:orientation="vertical"
         tools:background="@color/colorBlack">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/default_margin"
+            android:src="@drawable/core_ic_arrow_back" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
             style="@style/TextTitle"
