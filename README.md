@@ -16,7 +16,7 @@ Also make it easier to separate feature parts of the application from the design
 
 The code is organized using a Multi Module Project Structure with MVVM and some technologies, like:
   * <b>Koin</b> for dependency injection
-  * <b>Coroutines</b> for async tasks
+  * <b>Coroutines</b> with Flow for async tasks
   * <b>Room</b> for local database
   * <b>Junit</b> with <b>MockK</b> for unit tests
   * <b>Espresso</b> for instrumentation tests
@@ -24,7 +24,7 @@ The code is organized using a Multi Module Project Structure with MVVM and some 
   * <b>Navigation</b> of Jetpack Components
  
  
- <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/search.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/search.webp" width="250" height="480" />  <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/favorites.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/pictures/favorites.webp" width="250" height="480" />
+ <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/search.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/search.webp" width="250" height="480" />  <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/favorites.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/favorites.webp" width="250" height="480" />
  
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details
