@@ -68,4 +68,8 @@ class MovieRepository(private val api: MovieLogApi, private val dao: MovieDao) {
             emit(api.searchMovies(query = query, page = page).results)
         }
     }
+
+    fun getFavoritesMovies(): Flow<List<MovieEntity>?> {
+        return dao.getMovies()
+    }
 }

@@ -14,8 +14,6 @@ class ErrorDialog : BaseDialogFragment<DialogErrorBinding>(R.layout.dialog_error
         arguments?.apply {
             binding.tvDescription.text = getString(ARG_DESCRIPTION)
         }
-        binding.btnUnderstood.setOnClickListener {
-            this.dismiss()
-        }
+        binding.btnUnderstood.setOnClickListener { dismiss() }
     }
 }

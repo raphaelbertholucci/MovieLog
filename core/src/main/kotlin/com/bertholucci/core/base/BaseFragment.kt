@@ -45,6 +45,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
     }
 
     private fun showErrorDialog(@StringRes resId: Int) {
+        if (errorDialog.isAdded) return
         errorDialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
         errorDialog.show(childFragmentManager, "")
     }

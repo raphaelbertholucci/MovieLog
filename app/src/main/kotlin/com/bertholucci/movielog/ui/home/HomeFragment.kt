@@ -93,7 +93,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun setupAdapter(list: List<Movie>): HomeAdapter {
         val adapter = HomeAdapter(list)
         adapter.onClick = {
-            navigateToMovie(it.id.toString())
+            navigateToMovieDetails(it.id.toString())
         }
         return adapter
     }
@@ -102,7 +102,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         activity?.run { startActivity(intentToMovieList(type)) }
     }
 
-    private fun navigateToMovie(id: String) {
+    private fun navigateToMovieDetails(id: String) {
         activity?.run { startActivity(intentToMovie(id)) }
     }
 }

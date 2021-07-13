@@ -15,8 +15,7 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(private val layoutId: Int
 
     lateinit var binding: T
 
-    var show = false
-        private set
+    private var show = false
 
     override fun onResume() {
         super.onResume()
@@ -39,7 +38,7 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(private val layoutId: Int
     }
 
     override fun show(manager: FragmentManager, tag: String?) {
-        if (show || dialog != null && dialog!!.isShowing) return
+        if (show || isAdded || dialog != null && dialog!!.isShowing) return
 
         try {
             show = true

@@ -4,8 +4,6 @@ import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.core.extensions.showSnack
-import com.bertholucci.movie.model.Genre
-import com.bertholucci.movie.model.Movie
 import com.bertholucci.core.route.EXTRA_ID
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.movie.R
@@ -13,6 +11,8 @@ import com.bertholucci.movie.databinding.ActivityMovieBinding
 import com.bertholucci.movie.extensions.isFavorite
 import com.bertholucci.movie.extensions.isNotFavorite
 import com.bertholucci.movie.extensions.toRuntime
+import com.bertholucci.movie.model.Genre
+import com.bertholucci.movie.model.Movie
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -26,6 +26,7 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>(R.layout.activit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupLoading(viewModel)
         addObservers()
         addListeners()
         intent.extras?.getString(EXTRA_ID)?.let { id ->
