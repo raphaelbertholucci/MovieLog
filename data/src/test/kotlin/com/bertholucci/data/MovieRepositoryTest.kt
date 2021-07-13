@@ -62,6 +62,15 @@ class MovieRepositoryTest : BaseTest<MovieRepository>() {
         }
     }
 
+    @Test
+    fun getMovieDetails() = runBlockingTest {
+        coEvery { api.getMovieDetails(any()) } returns movieMock()
+
+        agent.getMovieDetails("123").collect {
+            assertEquals(movieMock(), it)
+        }
+    }
+
     private fun movieListMock() = MovieListResponse(
         listOf(
             MovieResponse(
@@ -80,4 +89,20 @@ class MovieRepositoryTest : BaseTest<MovieRepository>() {
             )
         )
     )
+
+    private fun movieMock() =
+        MovieResponse(
+            popularity = 10.0,
+            voteCount = 123,
+            posterPath = "",
+            id = 0,
+            backdropPath = "",
+            title = "",
+            voteAverage = 9.0,
+            overview = "",
+            releaseDate = "2020-02-21",
+            runtime = "100",
+            genres = listOf(),
+            originalLanguage = ""
+        )
 }
