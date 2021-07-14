@@ -19,25 +19,25 @@ class MovieRepository(private val api: MovieLogApi, private val dao: MovieDao) {
         }
     }
 
-    private fun getUpcomingMovies(page: Int = 1): Flow<List<MovieResponse>> {
+    fun getUpcomingMovies(page: Int = 1): Flow<List<MovieResponse>> {
         return flow {
             emit(api.getUpcomingMovies(page).results)
         }
     }
 
-    private fun getPopularMovies(page: Int = 1): Flow<List<MovieResponse>> {
+    fun getPopularMovies(page: Int = 1): Flow<List<MovieResponse>> {
         return flow {
             emit(api.getPopularMovies(page).results)
         }
     }
 
-    private fun getNowPlayingMovies(page: Int = 1): Flow<List<MovieResponse>> {
+    fun getNowPlayingMovies(page: Int = 1): Flow<List<MovieResponse>> {
         return flow {
             emit(api.getNowPlayingMovies(page).results)
         }
     }
 
-    private fun getTopRatedMovies(page: Int = 1): Flow<List<MovieResponse>> {
+    fun getTopRatedMovies(page: Int = 1): Flow<List<MovieResponse>> {
         return flow {
             emit(api.getTopRatedMovies(page).results)
         }
@@ -57,9 +57,9 @@ class MovieRepository(private val api: MovieLogApi, private val dao: MovieDao) {
         dao.removeMovie(movie)
     }
 
-    fun getMovieById(id: Int): Flow<MovieEntity?> {
+    fun getMovieByIdFromDB(id: Int): Flow<MovieEntity?> {
         return flow {
-            emit(dao.getMovieByID(id))
+            emit(dao.getMovieByIDFromDB(id))
         }
     }
 

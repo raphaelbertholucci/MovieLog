@@ -1,4 +1,4 @@
-package com.bertholucci.test
+package com.bertholucci.movie
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

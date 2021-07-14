@@ -1,42 +1,26 @@
-package com.bertholucci.movie
+package com.bertholucci.movie.ui.list
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.MovieType
 import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.movie.BaseViewModelTest
 import com.bertholucci.movie.model.Movie
-import com.bertholucci.movie.ui.list.MovieListViewModel
-import com.bertholucci.test.MainCoroutineRule
-import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.TestRule
 
 @ExperimentalCoroutinesApi
-class MovieListViewModelTest {
-
-    @get:Rule
-    val rule = MainCoroutineRule()
-
-    @get:Rule
-    var instantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
+class MovieListViewModelTest : BaseViewModelTest<MovieListViewModel>() {
 
     @RelaxedMockK
     private lateinit var repository: MovieRepository
 
-    private lateinit var viewModel: MovieListViewModel
-
-    @Before
-    fun setup() {
-        MockKAnnotations.init(this)
+    override fun init() {
         viewModel = MovieListViewModel(repository)
     }
 

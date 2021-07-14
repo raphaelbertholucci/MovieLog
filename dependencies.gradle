@@ -35,6 +35,7 @@ ext {
     mockk_version = "1.11.0"
     coroutines_test_version = "1.5.0"
     arch_version = '2.1.0'
+    test_core_version = '1.2.0'
 
     //NETWORK
     retrofit_version = "2.9.0"
@@ -76,7 +77,8 @@ ext {
             mockk                : "io.mockk:mockk:$mockk_version",
             mockk_android        : "io.mockk:mockk-android:$mockk_version",
             coroutines_test      : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version",
-            arch                 : "androidx.arch.core:core-testing:$arch_version"
+            arch                 : "androidx.arch.core:core-testing:$arch_version",
+            test_core            : "androidx.test:core:$test_core_version",
     ]
 
     networkDependencies = [
@@ -92,6 +94,7 @@ ext {
     ]
 
     asyncDependencies = [
+            coroutines_core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
             coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     ]
 

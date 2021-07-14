@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name="com.bertholucci.movie.ui.movie.MovieDetailsActivity"
+            android:name="com.bertholucci.movie.ui.details.MovieDetailsActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="${applicationId}.MOVIE" />

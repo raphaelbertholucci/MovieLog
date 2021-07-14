@@ -16,6 +16,12 @@ dependencies {
     api supportDependencies.values()
     api securityDependencies.values()
 
-    testImplementation project(":test")
-    androidTestImplementation project(":test")
+    api testDependencies.espresso
+    androidTestImplementation testDependencies.junit_instrumentation
+    androidTestImplementation testDependencies.mockk_android
+    androidTestImplementation testDependencies.test_core
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coroutines_test
+    testImplementation testDependencies.arch
 }

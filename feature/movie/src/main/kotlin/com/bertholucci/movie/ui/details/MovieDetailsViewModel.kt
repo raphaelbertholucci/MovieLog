@@ -1,4 +1,4 @@
-package com.bertholucci.movie.ui.movie
+package com.bertholucci.movie.ui.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -55,8 +55,8 @@ class MovieDetailsViewModel(private val repository: MovieRepository) : BaseViewM
         }
     }
 
-    fun getMovieByID(id: Int) {
-        repository.getMovieById(id)
+    fun getMovieByIDFromDB(id: Int) {
+        repository.getMovieByIdFromDB(id)
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
             .map { movie ->

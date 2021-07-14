@@ -1,4 +1,4 @@
-package com.bertholucci.movie.ui.movie
+package com.bertholucci.movie.ui.details
 
 import android.view.LayoutInflater
 import android.view.View

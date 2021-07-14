@@ -4,11 +4,13 @@ import com.bertholucci.data.database.MovieDao
 import com.bertholucci.data.model.MovieListResponse
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.MovieType
+import com.bertholucci.data.model.entity.MovieEntity
 import com.bertholucci.data.repository.MovieRepository
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -71,6 +73,23 @@ class MovieRepositoryTest : BaseTest<MovieRepository>() {
         }
     }
 
+    @Test
+    fun getMoviesFromDB() = runBlockingTest {
+        coEvery { dao.getMovies() } returns flow {
+            emit(movieEntityListMock())
+        }
+
+        agent.getFavoritesMovies().collect {
+            assertEquals(movieEntityListMock(), it)
+        }
+    }
+
+    @Test
+    fun getMovieByIDFromDB() = runBlockingTest {
+        coEvery { dao.getMovieByIDFromDB(any()) } returns movieEntityMock()
+        assertEquals(movieEntityMock(), dao.getMovieByIDFromDB(123))
+    }
+
     private fun movieListMock() = MovieListResponse(
         listOf(
             MovieResponse(
@@ -89,6 +108,39 @@ class MovieRepositoryTest : BaseTest<MovieRepository>() {
             )
         )
     )
+
+    private fun movieEntityListMock() = listOf(
+        MovieEntity(
+            popularity = 10.0,
+            voteCount = 123,
+            posterPath = "",
+            id = 0,
+            backdropPath = "",
+            title = "",
+            voteAverage = 9.0,
+            overview = "",
+            releaseDate = "2020-02-21",
+            runtime = "100",
+            genres = "",
+            originalLanguage = ""
+        )
+    )
+
+    private fun movieEntityMock() =
+        MovieEntity(
+            popularity = 10.0,
+            voteCount = 123,
+            posterPath = "",
+            id = 0,
+            backdropPath = "",
+            title = "",
+            voteAverage = 9.0,
+            overview = "",
+            releaseDate = "2020-02-21",
+            runtime = "100",
+            genres = "",
+            originalLanguage = ""
+        )
 
     private fun movieMock() =
         MovieResponse(

@@ -1,4 +1,4 @@
-package com.bertholucci.movie.ui.movie
+package com.bertholucci.movie.ui.details
 
 import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
@@ -63,7 +63,7 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
     }
 
     private fun handleSuccess(movie: Movie) {
-        viewModel.getMovieByID(movie.id)
+        viewModel.getMovieByIDFromDB(movie.id)
         this.movie = movie
         setupUI(movie)
     }

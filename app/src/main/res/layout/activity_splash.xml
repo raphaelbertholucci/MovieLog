@@ -15,6 +15,7 @@
         app:lottie_fileName="splash.json" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_logo"
         style="@style/TextLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -12,10 +12,10 @@ android {
 
 dependencies {
     api project(":core")
-    api project(":test")
     api testDependencies.espresso
     androidTestImplementation testDependencies.junit_instrumentation
     androidTestImplementation testDependencies.mockk_android
+    androidTestImplementation testDependencies.test_core
     testImplementation testDependencies.junit
     testImplementation testDependencies.mockk
     testImplementation testDependencies.coroutines_test

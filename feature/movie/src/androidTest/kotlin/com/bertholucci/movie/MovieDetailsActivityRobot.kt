@@ -5,7 +5,7 @@ import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository
 import com.bertholucci.movie.extensions.click
 import com.bertholucci.movie.extensions.hasText
-import com.bertholucci.movie.ui.movie.MovieDetailsActivity
+import com.bertholucci.movie.ui.details.MovieDetailsActivity
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
@@ -26,22 +26,22 @@ class MovieDetailsActivityRobot {
         }
     }
 
-    infix fun launchView(func: LoginActivityAction.() -> Unit): LoginActivityAction {
+    infix fun launchView(func: MovieDetailsActivityAction.() -> Unit): MovieDetailsActivityAction {
         ActivityScenario.launch(MovieDetailsActivity::class.java)
-        return LoginActivityAction().apply(func)
+        return MovieDetailsActivityAction().apply(func)
     }
 }
 
-class LoginActivityAction {
-    infix fun check(func: LoginActivityResult.() -> Unit) =
-        LoginActivityResult().apply(func)
+class MovieDetailsActivityAction {
+    infix fun check(func: MovieDetailsActivityResult.() -> Unit) =
+        MovieDetailsActivityResult().apply(func)
 
     fun clickOnSave() {
         R.id.iv_save.click()
     }
 }
 
-class LoginActivityResult {
+class MovieDetailsActivityResult {
 
     fun hasRightTexts() {
         R.id.tv_title.hasText("Avengers")
