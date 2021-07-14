@@ -1,4 +1,4 @@
-package com.bertholucci.test
+package com.bertholucci.movie.extensions
 
 import android.view.View
 import androidx.test.espresso.Espresso

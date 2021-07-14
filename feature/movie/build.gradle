@@ -12,6 +12,12 @@ android {
 
 dependencies {
     api project(":core")
-    testImplementation project(":test")
-    androidTestImplementation project(":test")
+    api project(":test")
+    api testDependencies.espresso
+    androidTestImplementation testDependencies.junit_instrumentation
+    androidTestImplementation testDependencies.mockk_android
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coroutines_test
+    testImplementation testDependencies.arch
 }

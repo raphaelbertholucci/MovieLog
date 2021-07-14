@@ -1,6 +1,5 @@
 package com.bertholucci.movie.ui.list
 
-import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.helpers.EndlessScrollListener
@@ -20,8 +19,7 @@ class MovieListActivity : BaseActivity<ActivityListBinding>(R.layout.activity_li
     private val adapter = MovieListAdapter()
     private lateinit var movieType: MovieType
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun init() {
         addObservers()
         addListeners()
 

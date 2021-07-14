@@ -3,9 +3,9 @@ package com.bertholucci.movie
 import androidx.test.core.app.ActivityScenario
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.movie.extensions.click
+import com.bertholucci.movie.extensions.hasText
 import com.bertholucci.movie.ui.movie.MovieDetailsActivity
-import com.bertholucci.test.click
-import com.bertholucci.test.hasText
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow

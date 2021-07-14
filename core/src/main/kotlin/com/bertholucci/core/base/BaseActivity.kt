@@ -18,9 +18,12 @@ abstract class BaseActivity<T : ViewDataBinding>(private val layoutId: Int) : Ap
     private val errorDialog: ErrorDialog by inject()
     private val loadingDialog: LoadingDialog by inject()
 
+    abstract fun init()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)
+        init()
     }
 
     //This function has to be called inside the children to configure loading dialog

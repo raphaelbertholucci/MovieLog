@@ -1,6 +1,5 @@
 package com.bertholucci.movie.ui.movie
 
-import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.core.extensions.showSnack
@@ -24,8 +23,7 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>(R.layout.activit
 
     private lateinit var movie: Movie
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun init() {
         setupLoading(viewModel)
         addObservers()
         addListeners()
