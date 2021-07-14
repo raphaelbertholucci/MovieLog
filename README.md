@@ -6,7 +6,8 @@ An app to see information about movies and save the ones that you love the most!
 
 ## Getting Started
 Before you try to run this project you should go to [TMDB API KEY](https://www.themoviedb.org/) to create your account generate you own api key.
-Place the key on Constants class file into API_KEY variable, like this: API_KEY = "YOUR_KEY".
+  * Create a <b>credentials.properties</b> file and place your key inside.
+  * There is one <b>credentials.properties.sample</b> as an example.
 
 ## Multi Module Project Structure
 The multi module project structure its being used to de-couple the main app of its features.
@@ -16,12 +17,13 @@ Also make it easier to separate feature parts of the application from the design
 
 The code is organized using a Multi Module Project Structure with MVVM and some technologies, like:
   * <b>Koin</b> for dependency injection
-  * <b>Coroutines</b> with Flow for async tasks
+  * <b>Coroutines</b> with <b>Flow</b> for async tasks
   * <b>Room</b> for local database
   * <b>Junit</b> with <b>MockK</b> for unit tests
   * <b>Espresso</b> for instrumentation tests
   * <b>Retrofit</b> for REST API calls
   * <b>Navigation</b> of Jetpack Components
+  * <b>CI Integration </b> with <b>GitHub Actions</b>
  
  
  <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/search.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/search.webp" width="250" height="480" />  <img src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/favorites.webp" alt="" data-canonical-src="https://github.com/raphaelbertholucci/MovieLog/blob/master/readme-pictures/favorites.webp" width="250" height="480" />
