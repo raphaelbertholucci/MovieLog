@@ -20,7 +20,7 @@ The code is organized using a Multi Module Project Structure with MVVM and some 
   * <b>Coroutines</b> with <b>Flow</b> for async tasks
   * <b>Room</b> for local database
   * <b>Junit</b> with <b>MockK</b> for unit tests
-  * <b>Espresso</b> for instrumentation tests
+  * <b>Espresso</b> for instrumentation tests (MovieDetailsActivityTest class)
   * <b>Retrofit</b> for REST API calls
   * <b>Navigation</b> of Jetpack Components
   * <b>CI Integration </b> with <b>GitHub Actions</b>
