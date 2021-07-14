@@ -1,4 +1,22 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MovieLog" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/colorGray</item>
+        <item name="android:windowBackground">@color/colorBlack</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
+        <item name="buttonStyle">@style/RobotoButtonStyle</item>
+    </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
 
     <style name="TextLogo">
         <item name="android:textColor">@color/colorWhite</item>

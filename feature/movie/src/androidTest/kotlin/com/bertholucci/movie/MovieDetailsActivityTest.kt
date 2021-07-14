@@ -16,4 +16,27 @@ class MovieDetailsActivityTest {
             hasRightTexts()
         }
     }
+
+    @Test
+    fun clickOnSave_shouldShowSnackBar_withMovieSavedText() {
+        setupView {
+            mockMovie()
+        } launchView {
+            clickOnSave()
+        } check {
+            snackIsVisible()
+        }
+    }
+
+    @Test
+    fun clickOnNotSave_shouldShowSnackBar_withMovieRemovedText() {
+        setupView {
+            mockMovie()
+            mockMovieFavorite()
+        } launchView {
+            clickOnSave()
+        } check {
+            snackMovieRemovedIsVisible()
+        }
+    }
 }

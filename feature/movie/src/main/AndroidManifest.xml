@@ -5,6 +5,7 @@
     <application>
         <activity
             android:name="com.bertholucci.movie.ui.details.MovieDetailsActivity"
+            android:theme="@style/Theme.MovieLog"
             android:exported="false">
             <intent-filter>
                 <action android:name="${applicationId}.MOVIE" />
@@ -13,6 +14,7 @@
         </activity>
         <activity
             android:name="com.bertholucci.movie.ui.list.MovieListActivity"
+            android:theme="@style/Theme.MovieLog"
             android:exported="false">
             <intent-filter>
                 <action android:name="${applicationId}.MOVIE_LIST" />

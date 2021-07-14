@@ -2,6 +2,7 @@ package com.bertholucci.movie.model
 
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.entity.MovieEntity
+import com.bertholucci.movie.extensions.getGenres
 import com.google.gson.Gson
 
 data class Movie(
@@ -46,7 +47,7 @@ data class Movie(
         releaseDate = entity.releaseDate,
         runtime = entity.runtime,
         originalLanguage = entity.originalLanguage,
-        genres = Gson().fromJson(entity.genres, Array<Genre>::class.java).asList()
+        genres = entity.genres?.getGenres() ?: emptyList()
     )
 }
 

@@ -60,7 +60,9 @@ class MovieDetailsViewModel(private val repository: MovieRepository) : BaseViewM
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
             .map { movie ->
-                movie?.let { _movieEntity.postValue(Response.Success(Movie(it))) }
+                movie?.let {
+                    _movieEntity.postValue(Response.Success(Movie(it)))
+                }
             }
             .catch { _movieEntity.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)
