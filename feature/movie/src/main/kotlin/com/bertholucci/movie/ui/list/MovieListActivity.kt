@@ -1,5 +1,6 @@
 package com.bertholucci.movie.ui.list
 
+import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.helpers.EndlessScrollListener
@@ -12,14 +13,17 @@ import com.bertholucci.movie.databinding.ActivityListBinding
 import com.bertholucci.movie.model.Movie
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class MovieListActivity : BaseActivity<ActivityListBinding>(R.layout.activity_list) {
+class MovieListActivity : BaseActivity<ActivityListBinding>() {
 
     private val viewModel: MovieListViewModel by viewModel()
 
     private val adapter = MovieListAdapter()
     private lateinit var movieType: MovieType
 
-    override fun init() {
+    override fun getViewBinding() = ActivityListBinding.inflate(layoutInflater)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         addObservers()
         addListeners()
 

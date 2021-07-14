@@ -1,6 +1,7 @@
 package com.bertholucci.movielog.ui.home
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import com.bertholucci.core.base.BaseFragment
 import com.bertholucci.core.route.intentToMovie
@@ -16,6 +17,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val viewModel: MovieViewModel by viewModel()
+
+    override fun getViewBinding() = FragmentHomeBinding.inflate(LayoutInflater.from(context))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

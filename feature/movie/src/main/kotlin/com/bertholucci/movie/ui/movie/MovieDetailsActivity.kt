@@ -1,5 +1,6 @@
 package com.bertholucci.movie.ui.movie
 
+import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.core.extensions.showSnack
@@ -17,13 +18,16 @@ import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>(R.layout.activity_movie) {
+class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
 
     private val viewModel: MovieDetailsViewModel by viewModel()
 
     private lateinit var movie: Movie
 
-    override fun init() {
+    override fun getViewBinding() = ActivityMovieBinding.inflate(layoutInflater)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setupLoading(viewModel)
         addObservers()
         addListeners()
@@ -65,10 +69,14 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>(R.layout.activit
     }
 
     private fun setupUI(movie: Movie) {
-        binding.movie = movie
+        binding.tvTitle.text = movie.title
+        binding.tvLanguage.text = movie.originalLanguage?.uppercase()
+        binding.tvReleaseDate.text = movie.releaseDate
+        binding.tvRate.text = movie.voteAverage.toString()
         binding.ivBackground.loadFromUrl(movie.backdropPath)
         binding.ivPoster.loadFromUrl(movie.posterPath)
         binding.tvRuntime.text = movie.runtime?.toRuntime()
+        binding.tvAbout.text = movie.overview
         setupGenreAdapter(movie.genres)
     }
 

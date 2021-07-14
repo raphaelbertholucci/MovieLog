@@ -3,11 +3,10 @@ package com.bertholucci.movie.ui.movie
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.movie.R
-import com.bertholucci.movie.model.Genre
 import com.bertholucci.movie.databinding.ItemGenreBinding
+import com.bertholucci.movie.model.Genre
 
 class GenreAdapter(private val list: List<Genre> = listOf()) :
     RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
@@ -27,10 +26,10 @@ class GenreAdapter(private val list: List<Genre> = listOf()) :
     inner class GenreViewHolder internal constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private var binding = DataBindingUtil.bind(itemView) as ItemGenreBinding?
+        private var binding = ItemGenreBinding.bind(itemView)
 
         fun bind(item: Genre) {
-            binding?.tvGenre?.text = item.name
+            binding.tvGenre.text = item.name
         }
     }
 }

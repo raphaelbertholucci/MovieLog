@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.bertholucci.core.component.ARG_DESCRIPTION
 import com.bertholucci.core.component.ErrorDialog
 import com.bertholucci.core.component.LoadingDialog
 import com.bertholucci.core.exception.ExceptionHandler.handleException
 import org.koin.android.ext.android.inject
 
-abstract class BaseFragment<T : ViewDataBinding>(
+abstract class BaseFragment<T : ViewBinding>(
     private val layoutId: Int
 ) : Fragment() {
 
@@ -23,12 +22,14 @@ abstract class BaseFragment<T : ViewDataBinding>(
     private val errorDialog: ErrorDialog by inject()
     private val loadingDialog: LoadingDialog by inject()
 
+    abstract fun getViewBinding(): T
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        binding = getViewBinding()
         return binding.root
     }
 

@@ -1,7 +1,6 @@
 package com.bertholucci.movielog.ui.favorites
 
 import android.view.View
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.movie.model.Movie
@@ -13,12 +12,11 @@ class FavoritesViewHolder internal constructor(
 ) :
     RecyclerView.ViewHolder(itemView) {
 
-    private var binding: ItemFavoritesBinding? = DataBindingUtil.bind(itemView)
+    private var binding = ItemFavoritesBinding.bind(itemView)
 
     fun bind(item: Movie) {
-        binding?.movie = item
-
-        binding?.ivPoster?.loadFromUrl(item.posterPath)
+        binding.tvTitle.text = item.title
+        binding.ivPoster.loadFromUrl(item.posterPath)
 
         itemView.setOnClickListener {
             onClick?.invoke(item)

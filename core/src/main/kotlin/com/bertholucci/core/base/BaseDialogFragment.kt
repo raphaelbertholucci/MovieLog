@@ -3,19 +3,19 @@ package com.bertholucci.core.base
 import android.app.Dialog
 import android.util.DisplayMetrics
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.viewbinding.ViewBinding
 
 private const val width_scale = 0.90F
 
-abstract class BaseDialogFragment<T : ViewDataBinding>(private val layoutId: Int) :
-    DialogFragment() {
+abstract class BaseDialogFragment<T : ViewBinding> : DialogFragment() {
 
     lateinit var binding: T
 
     private var show = false
+
+    abstract fun getViewBinding(): T
 
     override fun onResume() {
         super.onResume()
@@ -31,7 +31,7 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(private val layoutId: Int
     }
 
     override fun setupDialog(dialog: Dialog, style: Int) {
-        binding = DataBindingUtil.inflate(dialog.layoutInflater, layoutId, null, false)
+        binding = getViewBinding()
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
         dialog.setContentView(binding.root)

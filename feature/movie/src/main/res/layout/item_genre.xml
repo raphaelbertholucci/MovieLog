@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_genre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/little_margin"
-        android:layout_marginBottom="@dimen/little_margin"
-        android:background="@drawable/core_bg_white_stroke"
-        android:paddingStart="@dimen/little_margin"
-        android:paddingTop="@dimen/tiny_margin"
-        android:paddingEnd="@dimen/little_margin"
-        android:paddingBottom="@dimen/tiny_margin"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/small_title"
-        tools:text="Action" />
-
-</layout>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_genre"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/little_margin"
+    android:layout_marginBottom="@dimen/little_margin"
+    android:background="@drawable/core_bg_white_stroke"
+    android:paddingStart="@dimen/little_margin"
+    android:paddingTop="@dimen/tiny_margin"
+    android:paddingEnd="@dimen/little_margin"
+    android:paddingBottom="@dimen/tiny_margin"
+    android:textColor="@color/colorWhite"
+    android:textSize="@dimen/small_title"
+    tools:text="Action" />
