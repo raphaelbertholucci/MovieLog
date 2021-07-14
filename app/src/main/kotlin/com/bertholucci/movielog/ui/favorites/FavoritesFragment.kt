@@ -1,6 +1,7 @@
 package com.bertholucci.movielog.ui.favorites
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -15,6 +16,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragment_favorites) {
 
     private val viewModel: FavoritesViewModel by viewModel()
+
+    override fun getViewBinding() = FragmentFavoritesBinding.inflate(LayoutInflater.from(context))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

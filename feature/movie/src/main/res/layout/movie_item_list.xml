@@ -1,100 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin">
 
-    <data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster"
+        android:layout_width="@dimen/movie_list_item_width"
+        android:layout_height="@dimen/movie_list_item_height"
+        android:background="@color/colorBlack"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <variable
-            name="movie"
-            type="com.bertholucci.movie.model.Movie" />
-    </data>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/core_img_default" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        style="@style/TextDescription.Bold"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_margin">
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        app:layout_constraintEnd_toStartOf="@id/tv_rating"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/cv_poster"
+        app:layout_constraintTop_toTopOf="@id/cv_poster"
+        tools:text="Avengers" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_poster"
-            android:layout_width="@dimen/movie_list_item_width"
-            android:layout_height="@dimen/movie_list_item_height"
-            android:background="@color/colorBlack"
-            app:cardCornerRadius="@dimen/card_radius"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_rating"
+        style="@style/TextDescription.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/core_ic_star"
+        android:drawablePadding="@dimen/little_margin"
+        android:textColor="@color/colorYellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        tools:text="9.9" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/core_img_default" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_language"
+        style="@style/TextInfo.Gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/little_margin"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="Movie" />
 
-        </androidx.cardview.widget.CardView>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_vote_count"
+        style="@style/TextInfo.Gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/little_margin"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/tv_rating"
+        app:layout_constraintTop_toBottomOf="@id/tv_rating"
+        tools:text="20.000 votes" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_title"
-            style="@style/TextDescription.Bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:text="@{movie.title}"
-            app:layout_constraintEnd_toStartOf="@id/tv_rating"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/cv_poster"
-            app:layout_constraintTop_toTopOf="@id/cv_poster"
-            tools:text="Avengers" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_release_date"
+        style="@style/TextDescription.Gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/little_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_release_date"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="2020-02-21" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_rating"
-            style="@style/TextDescription.Bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/core_ic_star"
-            android:drawablePadding="@dimen/little_margin"
-            android:text="@{movie.voteAverage.toString()}"
-            android:textColor="@color/colorYellow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_title"
-            tools:text="9.9" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_language"
-            style="@style/TextInfo.Gray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/little_margin"
-            android:text="@{movie.originalLanguage.toUpperCase()}"
-            app:layout_constraintStart_toStartOf="@id/tv_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            tools:text="Movie" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_vote_average"
-            style="@style/TextInfo.Gray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/little_margin"
-            android:text="@{@plurals/votes(movie.voteCount, movie.voteCount)}"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@id/tv_rating"
-            app:layout_constraintTop_toBottomOf="@id/tv_rating"
-            tools:text="20.000 votes" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_release_date"
-            style="@style/TextDescription.Gray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/little_margin"
-            android:text="@{movie.releaseDate}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_release_date"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="20/02/2020" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.bertholucci.movielog.ui.search
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     private val adapter = MovieListAdapter()
     private var searchPage = 1
+
+    override fun getViewBinding() = FragmentSearchBinding.inflate(LayoutInflater.from(context))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
