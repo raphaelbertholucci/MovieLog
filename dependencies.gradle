@@ -48,7 +48,6 @@ ext {
 
     //DATABASE
     room_version = "2.3.0"
-    firebase_version = "20.0.0"
 
     //SECURITY
     secureSharedPreferences_version = "1.0.0"
@@ -101,10 +100,6 @@ ext {
     databaseDependencies = [
             room           : "androidx.room:room-runtime:$room_version",
             room_coroutines: "androidx.room:room-ktx:$room_version"
-    ]
-
-    firebaseDependencies = [
-            firebase_database: "com.google.firebase:firebase-database-ktx:$firebase_version"
     ]
 
     securityDependencies = [
