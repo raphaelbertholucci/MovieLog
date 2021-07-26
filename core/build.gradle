@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-    api project(':data')
+    implementation project(':data')
     api supportDependencies.values()
     api securityDependencies.values()
 

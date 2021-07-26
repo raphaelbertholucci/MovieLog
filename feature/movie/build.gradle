@@ -11,6 +11,7 @@ android {
 }
 
 dependencies {
+    api project(":data")
     api project(":core")
     api testDependencies.espresso
     androidTestImplementation testDependencies.junit_instrumentation

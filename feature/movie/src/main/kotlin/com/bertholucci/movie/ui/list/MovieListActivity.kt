@@ -4,13 +4,14 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.helpers.EndlessScrollListener
+import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.EXTRA_MOVIE_TYPE
 import com.bertholucci.core.route.intentToMovie
+import com.bertholucci.core.ui.MovieListAdapter
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.data.model.MovieType
 import com.bertholucci.movie.R
 import com.bertholucci.movie.databinding.ActivityListBinding
-import com.bertholucci.movie.model.Movie
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieListActivity : BaseActivity<ActivityListBinding>() {

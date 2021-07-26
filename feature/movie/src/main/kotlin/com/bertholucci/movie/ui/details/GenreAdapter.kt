@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.movie.R
 import com.bertholucci.movie.databinding.ItemGenreBinding
-import com.bertholucci.movie.model.Genre
+import com.bertholucci.core.model.Genre
 
 class GenreAdapter(private val list: List<Genre> = listOf()) :
     RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {

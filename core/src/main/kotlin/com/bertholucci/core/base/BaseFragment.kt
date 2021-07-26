@@ -10,17 +10,13 @@ import androidx.viewbinding.ViewBinding
 import com.bertholucci.core.component.ARG_DESCRIPTION
 import com.bertholucci.core.component.ErrorDialog
 import com.bertholucci.core.component.LoadingDialog
-import com.bertholucci.core.exception.ExceptionHandler.handleException
-import org.koin.android.ext.android.inject
+import com.bertholucci.core.exception.handleException
 
 abstract class BaseFragment<T : ViewBinding>(
     private val layoutId: Int
 ) : Fragment() {
 
     lateinit var binding: T
-
-    private val errorDialog: ErrorDialog by inject()
-    private val loadingDialog: LoadingDialog by inject()
 
     abstract fun getViewBinding(): T
 
@@ -35,6 +31,7 @@ abstract class BaseFragment<T : ViewBinding>(
 
     //This function has to be called inside the children to configure loading dialog
     fun setupLoading(viewModel: BaseViewModel) {
+        val loadingDialog = LoadingDialog()
         viewModel.loading.observe(viewLifecycleOwner) { loading ->
             if (loading) loadingDialog.show(childFragmentManager, "LOADING_DIALOG")
             else loadingDialog.dismiss()
@@ -46,7 +43,7 @@ abstract class BaseFragment<T : ViewBinding>(
     }
 
     private fun showErrorDialog(@StringRes resId: Int) {
-        if (errorDialog.isAdded) return
+        val errorDialog = ErrorDialog()
         errorDialog.arguments = Bundle().apply { putString(ARG_DESCRIPTION, getString(resId)) }
         errorDialog.show(childFragmentManager, "")
     }

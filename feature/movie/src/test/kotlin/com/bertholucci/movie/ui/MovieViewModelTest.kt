@@ -1,5 +1,6 @@
 package com.bertholucci.movie.ui
 
+import com.bertholucci.core.ui.MovieViewModel
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository

@@ -14,4 +14,9 @@
     <string name="core_now_playing_movies">Now Playing</string>
     <string name="core_top_rated_movies">Top Rated</string>
     <string name="core_see_all">See All  ></string>
+
+    <plurals name="votes">
+        <item quantity="one">%d vote</item>
+        <item quantity="other">%d votes</item>
+    </plurals>
 </resources>

@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":core")
+    api testDependencies.espresso
+    androidTestImplementation testDependencies.junit_instrumentation
+    androidTestImplementation testDependencies.mockk_android
+    androidTestImplementation testDependencies.test_core
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.coroutines_test
+    testImplementation testDependencies.arch
+}
