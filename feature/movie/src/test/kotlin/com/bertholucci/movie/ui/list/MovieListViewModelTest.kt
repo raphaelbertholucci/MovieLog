@@ -1,11 +1,11 @@
 package com.bertholucci.movie.ui.list
 
+import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.MovieType
 import com.bertholucci.data.repository.MovieRepository
-import com.bertholucci.movie.BaseViewModelTest
-import com.bertholucci.movie.model.Movie
+import com.bertholucci.movie.ui.BaseViewModelTest
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi

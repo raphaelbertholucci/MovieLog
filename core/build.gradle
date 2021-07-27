@@ -14,7 +14,7 @@ android {
 dependencies {
     implementation project(':data')
     api supportDependencies.values()
-    api securityDependencies.values()
+    api prefsDependencies.values()
 
     api testDependencies.espresso
     androidTestImplementation testDependencies.junit_instrumentation

@@ -7,7 +7,6 @@ import com.bertholucci.core.base.BaseFragment
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.route.intentToMovieList
-import com.bertholucci.core.ui.MovieViewModel
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.data.model.MovieType
 import com.easytraining.home.R
@@ -16,7 +15,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private val viewModel: MovieViewModel by viewModel()
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun getViewBinding() = FragmentHomeBinding.inflate(LayoutInflater.from(context))
 

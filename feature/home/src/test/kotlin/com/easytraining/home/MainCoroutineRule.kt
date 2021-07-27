@@ -1,4 +1,4 @@
-package com.bertholucci.movie
+package com.easytraining.home
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

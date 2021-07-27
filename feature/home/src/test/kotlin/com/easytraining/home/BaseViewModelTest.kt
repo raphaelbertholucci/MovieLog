@@ -1,4 +1,4 @@
-package com.bertholucci.movie
+package com.easytraining.home
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.MockKAnnotations

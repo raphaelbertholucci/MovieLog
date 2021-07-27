@@ -1,11 +1,10 @@
-package com.bertholucci.movie.ui
+package com.easytraining.home
 
-import com.bertholucci.core.ui.MovieViewModel
+import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository
-import com.bertholucci.movie.BaseViewModelTest
-import com.bertholucci.movie.model.Movie
+import com.easytraining.home.ui.home.HomeViewModel
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -15,13 +14,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class MovieViewModelTest : BaseViewModelTest<MovieViewModel>() {
+class HomeViewModelTest : BaseViewModelTest<HomeViewModel>() {
 
     @RelaxedMockK
     private lateinit var repository: MovieRepository
 
     override fun init() {
-        viewModel = MovieViewModel(repository)
+        viewModel = HomeViewModel(repository)
     }
 
     @Test

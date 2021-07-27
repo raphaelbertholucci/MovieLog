@@ -1,11 +1,13 @@
 package com.easytraining.home.di
 
 import com.easytraining.home.ui.favorites.FavoritesViewModel
+import com.easytraining.home.ui.home.HomeViewModel
 import com.easytraining.home.ui.search.SearchViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val homeModule = module {
+    viewModel { HomeViewModel(repository = get()) }
     viewModel { SearchViewModel(repository = get()) }
     viewModel { FavoritesViewModel(repository = get()) }
 }

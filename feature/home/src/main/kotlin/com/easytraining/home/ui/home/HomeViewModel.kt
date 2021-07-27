@@ -1,4 +1,4 @@
-package com.bertholucci.core.ui
+package com.easytraining.home.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 
-class MovieViewModel(private val repository: MovieRepository) : BaseViewModel() {
+class HomeViewModel(private val repository: MovieRepository) : BaseViewModel() {
 
     private val _upcoming = MutableLiveData<Response<List<Movie>>>()
     val upcoming: LiveData<Response<List<Movie>>>

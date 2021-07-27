@@ -11,8 +11,9 @@ android {
 }
 
 dependencies {
-    api project(":data")
-    api project(":core")
+    implementation project(":data")
+    implementation project(":core")
+
     api testDependencies.espresso
     androidTestImplementation testDependencies.junit_instrumentation
     androidTestImplementation testDependencies.mockk_android
