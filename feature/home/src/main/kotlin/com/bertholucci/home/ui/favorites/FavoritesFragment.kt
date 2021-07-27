@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.favorites
+package com.bertholucci.home.ui.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import com.bertholucci.core.base.BaseFragment
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.data.helpers.fold
-import com.easytraining.home.R
-import com.easytraining.home.databinding.FragmentFavoritesBinding
+import com.bertholucci.home.R
+import com.bertholucci.home.databinding.FragmentFavoritesBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragment_favorites) {

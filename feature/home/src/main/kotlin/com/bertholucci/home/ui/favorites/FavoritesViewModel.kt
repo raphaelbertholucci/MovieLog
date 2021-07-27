@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.favorites
+package com.bertholucci.home.ui.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.easytraining.home
+package com.bertholucci.home
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.MockKAnnotations

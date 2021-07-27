@@ -1,10 +1,10 @@
-package com.easytraining.home.ui.favorites
+package com.bertholucci.home.ui.favorites
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.core.model.Movie
-import com.easytraining.home.R
+import com.bertholucci.home.R
 
 class FavoritesAdapter(private val list: List<Movie>) :
     RecyclerView.Adapter<FavoritesViewHolder>() {

@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.search
+package com.bertholucci.home.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.ui.MovieListAdapter
 import com.bertholucci.data.helpers.fold
-import com.easytraining.home.R
-import com.easytraining.home.databinding.FragmentSearchBinding
+import com.bertholucci.home.R
+import com.bertholucci.home.databinding.FragmentSearchBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {

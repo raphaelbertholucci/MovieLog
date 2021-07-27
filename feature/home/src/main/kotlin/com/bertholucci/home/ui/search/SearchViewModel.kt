@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.search
+package com.bertholucci.home.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

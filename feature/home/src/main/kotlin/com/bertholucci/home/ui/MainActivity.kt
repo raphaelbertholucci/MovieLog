@@ -1,11 +1,11 @@
-package com.easytraining.home.ui
+package com.bertholucci.home.ui
 
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bertholucci.core.base.BaseActivity
-import com.easytraining.home.R
-import com.easytraining.home.databinding.ActivityMainBinding
+import com.bertholucci.home.R
+import com.bertholucci.home.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

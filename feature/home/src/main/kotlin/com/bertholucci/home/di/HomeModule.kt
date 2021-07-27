@@ -1,8 +1,8 @@
-package com.easytraining.home.di
+package com.bertholucci.home.di
 
-import com.easytraining.home.ui.favorites.FavoritesViewModel
-import com.easytraining.home.ui.home.HomeViewModel
-import com.easytraining.home.ui.search.SearchViewModel
+import com.bertholucci.home.ui.favorites.FavoritesViewModel
+import com.bertholucci.home.ui.home.HomeViewModel
+import com.bertholucci.home.ui.search.SearchViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

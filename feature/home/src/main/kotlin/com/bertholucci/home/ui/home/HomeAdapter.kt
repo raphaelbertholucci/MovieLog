@@ -1,10 +1,10 @@
-package com.easytraining.home.ui.home
+package com.bertholucci.home.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.core.model.Movie
-import com.easytraining.home.R
+import com.bertholucci.home.R
 
 class HomeAdapter(private val list: List<Movie> = listOf()) :
     RecyclerView.Adapter<HomeViewHolder>() {

@@ -1,10 +1,10 @@
-package com.easytraining.home
+package com.bertholucci.home
 
 import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository
-import com.easytraining.home.ui.home.HomeViewModel
+import com.bertholucci.home.ui.home.HomeViewModel
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi

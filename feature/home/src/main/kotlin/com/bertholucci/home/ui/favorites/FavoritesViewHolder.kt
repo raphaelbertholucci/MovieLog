@@ -1,10 +1,10 @@
-package com.easytraining.home.ui.favorites
+package com.bertholucci.home.ui.favorites
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.core.model.Movie
-import com.easytraining.home.databinding.ItemFavoritesBinding
+import com.bertholucci.home.databinding.ItemFavoritesBinding
 
 class FavoritesViewHolder internal constructor(
     itemView: View,

@@ -1,4 +1,4 @@
-package com.easytraining.home
+package com.bertholucci.home
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

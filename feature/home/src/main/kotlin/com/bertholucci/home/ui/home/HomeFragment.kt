@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.home
+package com.bertholucci.home.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.route.intentToMovieList
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.data.model.MovieType
-import com.easytraining.home.R
-import com.easytraining.home.databinding.FragmentHomeBinding
+import com.bertholucci.home.R
+import com.bertholucci.home.databinding.FragmentHomeBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {

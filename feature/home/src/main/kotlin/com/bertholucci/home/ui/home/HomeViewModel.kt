@@ -1,4 +1,4 @@
-package com.easytraining.home.ui.home
+package com.bertholucci.home.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

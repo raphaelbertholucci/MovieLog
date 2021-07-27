@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.easytraining.home.ui.home.HomeFragment"
+        android:name="com.bertholucci.home.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_top_rated"
-        android:name="com.easytraining.home.ui.search.SearchFragment"
+        android:name="com.bertholucci.home.ui.search.SearchFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.easytraining.home.ui.favorites.FavoritesFragment"
+        android:name="com.bertholucci.home.ui.favorites.FavoritesFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 
