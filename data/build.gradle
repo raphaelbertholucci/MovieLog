@@ -33,4 +33,7 @@ dependencies {
     testImplementation testDependencies.mockk
     testImplementation testDependencies.coroutines_test
     testImplementation testDependencies.arch
+
+//    testImplementation project(":test")
+//    androidTestImplementation project(":test")
 }

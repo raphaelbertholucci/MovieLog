@@ -14,6 +14,7 @@ android {
 dependencies {
     implementation project(":data")
     implementation project(":core")
+
     api testDependencies.espresso
     androidTestImplementation testDependencies.junit_instrumentation
     androidTestImplementation testDependencies.mockk_android
@@ -22,4 +23,7 @@ dependencies {
     testImplementation testDependencies.mockk
     testImplementation testDependencies.coroutines_test
     testImplementation testDependencies.arch
+
+//    testImplementation project(":test")
+//    androidTestImplementation project(":test")
 }
