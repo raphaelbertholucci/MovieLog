@@ -1,4 +1,4 @@
-package com.bertholucci.core.helpers
+package com.bertholucci.data.preferences
 
 import android.content.Context
 import androidx.datastore.core.DataStore

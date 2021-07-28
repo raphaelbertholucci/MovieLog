@@ -21,6 +21,7 @@ dependencies {
     api networkDependencies.values()
     api databaseDependencies.values()
     api diDependencies.values()
+    api prefsDependencies.values()
 
     def room_version = '2.3.0'
     kapt "androidx.room:room-compiler:$room_version"

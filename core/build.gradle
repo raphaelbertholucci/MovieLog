@@ -14,5 +14,4 @@ android {
 dependencies {
     implementation project(':data')
     api supportDependencies.values()
-    api prefsDependencies.values()
 }
