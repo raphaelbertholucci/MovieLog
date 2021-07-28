@@ -22,10 +22,7 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addObservers()
-    }
 
-    override fun onResume() {
-        super.onResume()
         viewModel.getFavoritesMovies()
     }
 
