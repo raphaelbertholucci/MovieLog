@@ -11,7 +11,7 @@ import com.bertholucci.data.helpers.fold
 import com.bertholucci.data.model.MovieType
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentHomeBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 

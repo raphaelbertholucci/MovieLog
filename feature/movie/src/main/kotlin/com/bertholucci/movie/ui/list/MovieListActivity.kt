@@ -12,7 +12,7 @@ import com.bertholucci.data.helpers.fold
 import com.bertholucci.data.model.MovieType
 import com.bertholucci.movie.R
 import com.bertholucci.movie.databinding.ActivityListBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieListActivity : BaseActivity<ActivityListBinding>() {
 

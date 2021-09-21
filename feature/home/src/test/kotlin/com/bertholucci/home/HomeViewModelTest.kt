@@ -1,6 +1,5 @@
 package com.bertholucci.home
 
-import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.repository.MovieRepository

@@ -13,7 +13,7 @@ import com.bertholucci.core.ui.MovieListAdapter
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentSearchBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 

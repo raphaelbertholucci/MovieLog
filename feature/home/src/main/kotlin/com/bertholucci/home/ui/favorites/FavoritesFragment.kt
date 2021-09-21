@@ -11,7 +11,7 @@ import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.data.helpers.fold
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentFavoritesBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragment_favorites) {
 

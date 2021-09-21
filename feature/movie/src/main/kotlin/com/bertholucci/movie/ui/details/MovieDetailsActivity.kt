@@ -16,7 +16,7 @@ import com.bertholucci.movie.extensions.toRuntime
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
 
