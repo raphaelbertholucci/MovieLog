@@ -1,4 +1,4 @@
-package com.bertholucci.data.helpers
+package com.bertholucci.core.helpers
 
 sealed class Response<out V> {
     data class Success<out V>(val value: V) : Response<V>()

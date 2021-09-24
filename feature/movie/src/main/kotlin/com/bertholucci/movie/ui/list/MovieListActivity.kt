@@ -3,15 +3,16 @@ package com.bertholucci.movie.ui.list
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseActivity
+import com.bertholucci.core.extensions.setColor
 import com.bertholucci.core.helpers.EndlessScrollListener
+import com.bertholucci.core.helpers.fold
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.EXTRA_MOVIE_TYPE
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.ui.MovieListAdapter
-import com.bertholucci.data.helpers.fold
-import com.bertholucci.data.model.MovieType
 import com.bertholucci.movie.R
 import com.bertholucci.movie.databinding.ActivityListBinding
+import com.bertholucci.movielog.domain.model.MovieType
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieListActivity : BaseActivity<ActivityListBinding>() {
@@ -37,12 +38,15 @@ class MovieListActivity : BaseActivity<ActivityListBinding>() {
 
     private fun addObservers() {
         viewModel.movieList.observe(this) { response ->
+            binding.swipe.isRefreshing = false
             response.fold(::handleError, ::handleSuccess)
         }
     }
 
     private fun addListeners() {
         binding.ivBack.setOnClickListener { finish() }
+
+        binding.swipe.setOnRefreshListener { viewModel.getMovies(movieType) }
     }
 
     private fun setupUI(type: MovieType) {
@@ -56,6 +60,7 @@ class MovieListActivity : BaseActivity<ActivityListBinding>() {
             }
         )
         setupAdapter()
+        binding.swipe.setColor(this)
     }
 
     private fun setupAdapter() {

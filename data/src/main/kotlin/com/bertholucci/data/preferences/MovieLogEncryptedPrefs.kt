@@ -8,7 +8,7 @@ import androidx.security.crypto.MasterKeys
 private const val PREFS_NAME = "prefs_name"
 private const val ENCRYPTED_PREFS_NAME = "encrypted_$PREFS_NAME"
 
-class MovieLogEncryptedPrefs(val context: Context) {
+class MovieLogEncryptedPrefs(private val context: Context) {
 
     private val encryptedSharedPrefs by lazy {
         val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
@@ -39,11 +39,7 @@ class MovieLogEncryptedPrefs(val context: Context) {
         }
     }
 
-    fun getString(
-        key: String,
-        defaultValue: String = "",
-        encrypted: Boolean = true
-    ): String {
+    fun getString(key: String, defaultValue: String = ""): String {
         return encryptedSharedPrefs.getString(key, defaultValue) ?: ""
     }
 
@@ -51,19 +47,11 @@ class MovieLogEncryptedPrefs(val context: Context) {
         return encryptedSharedPrefs.getInt(key, defaultValue)
     }
 
-    fun getBoolean(
-        key: String,
-        defaultValue: Boolean = false,
-        encrypted: Boolean = true
-    ): Boolean {
+    fun getBoolean(key: String, defaultValue: Boolean = false): Boolean {
         return encryptedSharedPrefs.getBoolean(key, defaultValue)
     }
 
-    fun getFloat(
-        key: String,
-        defaultValue: Float = 0F,
-        encrypted: Boolean = true
-    ): Float {
+    fun getFloat(key: String, defaultValue: Float = 0F): Float {
         return encryptedSharedPrefs.getFloat(key, defaultValue)
     }
 

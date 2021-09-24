@@ -7,7 +7,14 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val homeModule = module {
-    viewModel { HomeViewModel(repository = get()) }
-    viewModel { SearchViewModel(repository = get()) }
-    viewModel { FavoritesViewModel(repository = get()) }
+    viewModel {
+        HomeViewModel(
+            upcomingMovies = get(),
+            popularMovies = get(),
+            nowPlayingMovies = get(),
+            topRatedMovies = get()
+        )
+    }
+    viewModel { SearchViewModel(searchMovies = get()) }
+    viewModel { FavoritesViewModel(getFavorites = get()) }
 }

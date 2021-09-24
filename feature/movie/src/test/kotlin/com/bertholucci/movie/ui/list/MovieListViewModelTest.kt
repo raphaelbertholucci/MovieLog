@@ -3,8 +3,8 @@ package com.bertholucci.movie.ui.list
 import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
-import com.bertholucci.data.model.MovieType
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.movielog.domain.model.MovieType
+import com.bertholucci.data.repository.MovieRepositoryImpl
 import com.bertholucci.movie.ui.BaseViewModelTest
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -18,19 +18,19 @@ import org.junit.Test
 class MovieListViewModelTest : BaseViewModelTest<MovieListViewModel>() {
 
     @RelaxedMockK
-    private lateinit var repository: MovieRepository
+    private lateinit var repositoryImpl: MovieRepositoryImpl
 
     override fun init() {
-        viewModel = MovieListViewModel(repository)
+        viewModel = MovieListViewModel(repositoryImpl)
     }
 
     @Test
     fun getMovies(): Unit = runBlockingTest {
-        coEvery { repository.getMoviesByType(any(), any()) } returns flow {
+        coEvery { repositoryImpl.getMoviesByType(any(), any()) } returns flow {
             emit(movieListMock())
         }
 
-        viewModel.getMovies(MovieType.TOP_RATED)
+        viewModel.getMovies(com.bertholucci.movielog.domain.model.MovieType.TOP_RATED)
 
         viewModel.movieList.observeForever {
             assertEquals(Response.Success(movieListMock().map(::Movie).toMutableList()), it)

@@ -1,13 +1,14 @@
 package com.bertholucci.movie.ui.details
 
+import android.app.Activity
 import android.os.Bundle
 import com.bertholucci.core.base.BaseActivity
 import com.bertholucci.core.extensions.loadFromUrl
 import com.bertholucci.core.extensions.showSnack
+import com.bertholucci.core.helpers.fold
 import com.bertholucci.core.model.Genre
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.EXTRA_ID
-import com.bertholucci.data.helpers.fold
 import com.bertholucci.movie.R
 import com.bertholucci.movie.databinding.ActivityMovieBinding
 import com.bertholucci.movie.extensions.isFavorite
@@ -36,6 +37,11 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
         }
     }
 
+    override fun onBackPressed() {
+        if (viewModel.hasChanged) setResult(Activity.RESULT_OK)
+        super.onBackPressed()
+    }
+
     private fun addObservers() {
         viewModel.movie.observe(this) { response ->
             response.fold(error = ::handleError, success = ::handleSuccess)
@@ -43,6 +49,7 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
 
         viewModel.isFavorite.observe(this) { isFavorite ->
             checkIfMovieIsFavorite(isFavorite)
+            viewModel.hasChanged = true
         }
 
         viewModel.movieEntity.observe(this) { response ->
@@ -56,7 +63,7 @@ class MovieDetailsActivity : BaseActivity<ActivityMovieBinding>() {
     }
 
     private fun addListeners() {
-        binding.ivBack.setOnClickListener { finish() }
+        binding.ivBack.setOnClickListener { onBackPressed() }
         binding.ivSave.setOnClickListener {
             viewModel.updateMovieState(movie)
         }

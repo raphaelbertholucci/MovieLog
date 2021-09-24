@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bertholucci.core.base.BaseViewModel
 import com.bertholucci.core.extensions.defaultValue
+import com.bertholucci.core.helpers.Response
 import com.bertholucci.core.model.Movie
-import com.bertholucci.data.helpers.Response
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.core.mapper.MovieMapper
+import com.bertholucci.movielog.domain.interactor.SearchMovies
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.onStart
 
 private const val START_PAGE = 1
 
-class SearchViewModel(private val repository: MovieRepository) : BaseViewModel() {
+class SearchViewModel(private val searchMovies: SearchMovies) : BaseViewModel() {
 
     private val page = MutableLiveData<Int>().defaultValue(START_PAGE)
 
@@ -25,10 +26,16 @@ class SearchViewModel(private val repository: MovieRepository) : BaseViewModel()
         get() = _result
 
     fun searchMovies(query: String, page: Int = 1) {
-        repository.searchMovies(query = query, page = page)
+        searchMovies(requestValues = Pair(query, page))
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
-            .map { _result.postValue(Response.Success(it.map(::Movie).toMutableList())) }
+            .map {
+                _result.postValue(
+                    Response.Success(
+                        MovieMapper().mapFromDomainList(it).toMutableList()
+                    )
+                )
+            }
             .catch { _result.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)
     }

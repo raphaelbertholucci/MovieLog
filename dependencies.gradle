@@ -28,6 +28,7 @@ ext {
     lottie_version = "4.1.0"
     flexbox_version = '3.0.0'
     gradle_plugin_version = '0.39.0'
+    swipe_refresh_layout = '1.1.0'
 
     //TESTS
     junit_version = "4.13.2"
@@ -56,19 +57,20 @@ ext {
 
 
     supportDependencies = [
-            core_ktx           : "androidx.core:core-ktx:$core_version",
-            material           : "com.google.android.material:material:$material_version",
-            app_compat         : "androidx.appcompat:appcompat:$app_compat_version",
-            recycler_view      : "androidx.recyclerview:recyclerview:$recycler_view_version",
-            constraint_layout  : "androidx.constraintlayout:constraintlayout:$constraint_version",
-            lifecycle_viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
-            lifecylce_livedata : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
-            navigation_fragment: "androidx.navigation:navigation-fragment-ktx:$navigation_version",
-            navigation         : "androidx.navigation:navigation-ui-ktx:$navigation_version",
-            card_view          : "androidx.cardview:cardview:$cardview_version",
-            coil               : "io.coil-kt:coil:$coil_version",
-            lottie             : "com.airbnb.android:lottie:$lottie_version",
-            flexbox            : "com.google.android.flexbox:flexbox:$flexbox_version"
+            core_ktx            : "androidx.core:core-ktx:$core_version",
+            material            : "com.google.android.material:material:$material_version",
+            app_compat          : "androidx.appcompat:appcompat:$app_compat_version",
+            recycler_view       : "androidx.recyclerview:recyclerview:$recycler_view_version",
+            constraint_layout   : "androidx.constraintlayout:constraintlayout:$constraint_version",
+            lifecycle_viewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            lifecylce_livedata  : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            navigation_fragment : "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+            navigation          : "androidx.navigation:navigation-ui-ktx:$navigation_version",
+            card_view           : "androidx.cardview:cardview:$cardview_version",
+            coil                : "io.coil-kt:coil:$coil_version",
+            lottie              : "com.airbnb.android:lottie:$lottie_version",
+            flexbox             : "com.google.android.flexbox:flexbox:$flexbox_version",
+            swipe_refresh_layout: "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout"
     ]
 
     testDependencies = [
@@ -90,7 +92,8 @@ ext {
     ]
 
     diDependencies = [
-            koin          : "io.insert-koin:koin-android:$koin_version"
+            koin     : "io.insert-koin:koin-android:$koin_version",
+            koin_core: "io.insert-koin:koin-core:$koin_version"
     ]
 
     asyncDependencies = [
@@ -104,7 +107,7 @@ ext {
     ]
 
     prefsDependencies = [
-            datastore: "androidx.datastore:datastore-preferences:$datastore_version",
+            datastore                : "androidx.datastore:datastore-preferences:$datastore_version",
             secure_shared_preferences: "androidx.security:security-crypto:$secure_shared_preferences_version",
     ]
 }

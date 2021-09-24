@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.bertholucci.core.base.BaseFragment
+import com.bertholucci.core.helpers.fold
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.route.intentToMovieList
-import com.bertholucci.data.helpers.fold
-import com.bertholucci.data.model.MovieType
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -63,16 +62,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun addListeners() {
         binding.tvSeeAllUpcoming.setOnClickListener {
-            navigateToList(MovieType.UPCOMING)
+            navigateToList(com.bertholucci.movielog.domain.model.MovieType.UPCOMING)
         }
         binding.tvSeeAllPopular.setOnClickListener {
-            navigateToList(MovieType.POPULAR)
+            navigateToList(com.bertholucci.movielog.domain.model.MovieType.POPULAR)
         }
         binding.tvSeeAllNowPlaying.setOnClickListener {
-            navigateToList(MovieType.NOW_PLAYING)
+            navigateToList(com.bertholucci.movielog.domain.model.MovieType.NOW_PLAYING)
         }
         binding.tvSeeAllTopRated.setOnClickListener {
-            navigateToList(MovieType.TOP_RATED)
+            navigateToList(com.bertholucci.movielog.domain.model.MovieType.TOP_RATED)
         }
     }
 
@@ -100,7 +99,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         return adapter
     }
 
-    private fun navigateToList(type: MovieType) {
+    private fun navigateToList(type: com.bertholucci.movielog.domain.model.MovieType) {
         activity?.run { startActivity(intentToMovieList(type.toString())) }
     }
 

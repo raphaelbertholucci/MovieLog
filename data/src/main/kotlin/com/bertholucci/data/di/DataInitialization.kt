@@ -1,6 +1,6 @@
 package com.bertholucci.data.di
 
-import com.bertholucci.data.BuildConfig
+import com.bertholucci.core.BuildConfig
 import com.bertholucci.data.MovieLogApi
 import okhttp3.Cache
 import okhttp3.ConnectionSpec

@@ -4,7 +4,7 @@ import com.bertholucci.core.model.Movie
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.entity.MovieEntity
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.data.repository.MovieRepositoryImpl
 import com.bertholucci.movie.ui.BaseViewModelTest
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -18,15 +18,15 @@ import org.junit.Test
 class MovieDetailsViewModelTest : BaseViewModelTest<MovieDetailsViewModel>() {
 
     @RelaxedMockK
-    private lateinit var repository: MovieRepository
+    private lateinit var repositoryImpl: MovieRepositoryImpl
 
     override fun init() {
-        viewModel = MovieDetailsViewModel(repository)
+        viewModel = MovieDetailsViewModel(repositoryImpl)
     }
 
     @Test
     fun getMovieDetail(): Unit = runBlockingTest {
-        coEvery { repository.getMovieDetails(any()) } returns flow {
+        coEvery { repositoryImpl.getMovieDetails(any()) } returns flow {
             emit(movieMock())
         }
 
@@ -39,7 +39,7 @@ class MovieDetailsViewModelTest : BaseViewModelTest<MovieDetailsViewModel>() {
 
     @Test
     fun getMovieByIDFromDB(): Unit = runBlockingTest {
-        coEvery { repository.getMovieByIdFromDB(any()) } returns flow {
+        coEvery { repositoryImpl.getMovieByIdFromDB(any()) } returns flow {
             emit(movieMockEntity())
         }
 

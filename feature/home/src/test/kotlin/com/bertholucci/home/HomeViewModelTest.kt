@@ -2,7 +2,7 @@ package com.bertholucci.home
 
 import com.bertholucci.data.helpers.Response
 import com.bertholucci.data.model.MovieResponse
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.data.repository.MovieRepositoryImpl
 import com.bertholucci.home.ui.home.HomeViewModel
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -16,15 +16,15 @@ import org.junit.Test
 class HomeViewModelTest : BaseViewModelTest<HomeViewModel>() {
 
     @RelaxedMockK
-    private lateinit var repository: MovieRepository
+    private lateinit var repositoryImpl: MovieRepositoryImpl
 
     override fun init() {
-        viewModel = HomeViewModel(repository)
+        viewModel = HomeViewModel(repositoryImpl)
     }
 
     @Test
     fun getUpcomingMovies(): Unit = runBlockingTest {
-        coEvery { repository.getUpcomingMovies() } returns flow {
+        coEvery { repositoryImpl.getUpcomingMovies() } returns flow {
             emit(movieListMock())
         }
 
@@ -37,7 +37,7 @@ class HomeViewModelTest : BaseViewModelTest<HomeViewModel>() {
 
     @Test
     fun getPopularMovies(): Unit = runBlockingTest {
-        coEvery { repository.getPopularMovies() } returns flow {
+        coEvery { repositoryImpl.getPopularMovies() } returns flow {
             emit(movieListMock())
         }
 
@@ -50,7 +50,7 @@ class HomeViewModelTest : BaseViewModelTest<HomeViewModel>() {
 
     @Test
     fun getNowPlayingMovies(): Unit = runBlockingTest {
-        coEvery { repository.getNowPlayingMovies() } returns flow {
+        coEvery { repositoryImpl.getNowPlayingMovies() } returns flow {
             emit(movieListMock())
         }
 
@@ -63,7 +63,7 @@ class HomeViewModelTest : BaseViewModelTest<HomeViewModel>() {
 
     @Test
     fun getTopRatedMovies(): Unit = runBlockingTest {
-        coEvery { repository.getTopRatedMovies() } returns flow {
+        coEvery { repositoryImpl.getTopRatedMovies() } returns flow {
             emit(movieListMock())
         }
 

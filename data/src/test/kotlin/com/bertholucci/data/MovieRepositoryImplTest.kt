@@ -3,9 +3,9 @@ package com.bertholucci.data
 import com.bertholucci.data.database.MovieDao
 import com.bertholucci.data.model.MovieListResponse
 import com.bertholucci.data.model.MovieResponse
-import com.bertholucci.data.model.MovieType
+import com.bertholucci.movielog.domain.model.MovieType
 import com.bertholucci.data.model.entity.MovieEntity
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.data.repository.MovieRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,7 +16,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class MovieRepositoryTest : BaseTest<MovieRepository>() {
+class MovieRepositoryImplTest : BaseTest<MovieRepositoryImpl>() {
 
     @RelaxedMockK
     private lateinit var api: MovieLogApi
@@ -25,7 +25,7 @@ class MovieRepositoryTest : BaseTest<MovieRepository>() {
     private lateinit var dao: MovieDao
 
     override fun init() {
-        agent = MovieRepository(api, dao)
+        agent = MovieRepositoryImpl(api, dao)
     }
 
     @Test

@@ -22,10 +22,17 @@
         android:layout_margin="@dimen/default_margin"
         tools:text="Upcoming Movies" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_movies"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/movie_item_list" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/movie_item_list" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

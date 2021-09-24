@@ -1,14 +1,18 @@
 package com.bertholucci.home.ui.favorites
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bertholucci.core.base.BaseFragment
+import com.bertholucci.core.extensions.setColor
+import com.bertholucci.core.helpers.fold
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
-import com.bertholucci.data.helpers.fold
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentFavoritesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,18 +21,38 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragme
 
     private val viewModel: FavoritesViewModel by viewModel()
 
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            onMovieActivityResult(result)
+        }
+
     override fun getViewBinding() = FragmentFavoritesBinding.inflate(LayoutInflater.from(context))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addObservers()
+        addListeners()
 
+        binding.swipe.setColor(context)
         viewModel.getFavoritesMovies()
+    }
+
+    private fun onMovieActivityResult(result: ActivityResult) {
+        if (result.resultCode == Activity.RESULT_OK) {
+            viewModel.getFavoritesMovies()
+        }
     }
 
     private fun addObservers() {
         viewModel.movies.observe(viewLifecycleOwner) { response ->
+            binding.swipe.isRefreshing = false
             response.fold(::handleError, ::handleSuccess)
+        }
+    }
+
+    private fun addListeners() {
+        binding.swipe.setOnRefreshListener {
+            viewModel.getFavoritesMovies()
         }
     }
 
@@ -57,7 +81,7 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(R.layout.fragme
     }
 
     private fun navigateToMovieDetails(id: String) {
-        activity?.run { startActivity(intentToMovie(id)) }
+        activity?.run { resultLauncher.launch(intentToMovie(id)) }
     }
 }
 

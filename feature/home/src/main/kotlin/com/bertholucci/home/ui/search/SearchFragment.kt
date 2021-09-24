@@ -7,10 +7,10 @@ import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.core.base.BaseFragment
 import com.bertholucci.core.helpers.EndlessScrollListener
+import com.bertholucci.core.helpers.fold
 import com.bertholucci.core.model.Movie
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.core.ui.MovieListAdapter
-import com.bertholucci.data.helpers.fold
 import com.bertholucci.home.R
 import com.bertholucci.home.databinding.FragmentSearchBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel

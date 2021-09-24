@@ -8,7 +8,7 @@ import com.bertholucci.core.component.LoadingDialog
 import com.bertholucci.core.route.intentToMovie
 import com.bertholucci.data.model.MovieResponse
 import com.bertholucci.data.model.entity.MovieEntity
-import com.bertholucci.data.repository.MovieRepository
+import com.bertholucci.data.repository.MovieRepositoryImpl
 import com.bertholucci.movie.extensions.click
 import com.bertholucci.movie.extensions.hasText
 import com.bertholucci.movie.extensions.isTextDisplayed
@@ -27,13 +27,13 @@ fun setupView(func: MovieDetailsActivityRobot.() -> Unit) =
 
 class MovieDetailsActivityRobot {
 
-    private val repository: MovieRepository = mockk(relaxed = true)
+    private val repositoryImpl: MovieRepositoryImpl = mockk(relaxed = true)
 
     init {
         startKoin {
             modules(
                 listOf(
-                    module { viewModel { MovieDetailsViewModel(repository = repository) } },
+                    module { viewModel { MovieDetailsViewModel(repository = repositoryImpl) } },
                     module { single { LoadingDialog() } },
                     module { single { ErrorDialog() } }
                 )
@@ -43,7 +43,7 @@ class MovieDetailsActivityRobot {
 
     fun mockMovie() {
         coEvery {
-            repository.getMovieDetails(any())
+            repositoryImpl.getMovieDetails(any())
         } returns flow {
             emit(mock())
         }
@@ -51,7 +51,7 @@ class MovieDetailsActivityRobot {
 
     fun mockMovieFavorite() {
         coEvery {
-            repository.getMovieByIdFromDB(any())
+            repositoryImpl.getMovieByIdFromDB(any())
         } returns flow {
             emit(mockEntity())
         }

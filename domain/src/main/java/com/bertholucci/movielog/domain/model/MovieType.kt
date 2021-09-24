@@ -1,4 +1,4 @@
-package com.bertholucci.data.model
+package com.bertholucci.movielog.domain.model
 
 enum class MovieType {
     POPULAR,

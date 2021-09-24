@@ -7,6 +7,7 @@ import com.bertholucci.data.di.preferencesModule
 import com.bertholucci.data.di.repositoryModule
 import com.bertholucci.home.di.homeModule
 import com.bertholucci.movie.di.movieModule
+import com.bertholucci.movielog.domain.di.useCaseModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -25,7 +26,8 @@ class MovieLogApp : Application() {
                     repositoryModule,
                     preferencesModule,
                     movieModule,
-                    homeModule
+                    homeModule,
+                    useCaseModule
                 )
             )
         }

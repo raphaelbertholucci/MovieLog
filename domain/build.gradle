@@ -1,0 +1,9 @@
+plugins {
+    id("kotlin")
+}
+
+dependencies {
+    implementation asyncDependencies.coroutines_core
+    implementation asyncDependencies.coroutines_android
+    implementation diDependencies.koin_core
+}
